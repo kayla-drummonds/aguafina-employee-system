@@ -10,7 +10,4 @@ import com.aguafina.springboot.models.Customer;
 public interface CustomerService {
     List<Customer> getAllCustomers();
 
-    Customer updateCustomer(Customer customer);
-
-    Customer saveCustomer(Customer customer);
 }
