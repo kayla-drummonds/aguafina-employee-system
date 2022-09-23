@@ -5,8 +5,8 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "customer_orders")
-public class CustomerOrder {
+@Table(name = "orders")
+public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,10 +34,10 @@ public class CustomerOrder {
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
-    public CustomerOrder() {
+    public Order() {
     }
 
-    public CustomerOrder(Product product, int quantity, double total, Date creationDate, Customer customer,
+    public Order(Product product, int quantity, double total, Date creationDate, Customer customer,
             Employee employee) {
         this.product = product;
         this.quantity = quantity;
