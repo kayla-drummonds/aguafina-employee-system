@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Orders</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a th:href="@{/products}">Shop</a>
+                </li>
+                <li>
+                    <a th:href="@{/orders}">Orders</a>
+                </li>
+                <li>
+                    <a th:href="@{/customers}">Customers</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <a th:href="@{/orders/new}">Create a new order</a>
+    <div id="orders">
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Creation date</th>
+                    <th>Customer ID</th>
+                    <th>Employee ID</th>
+                    <th>Product Code</th>
+                    <th>Product Size (Fluid Oz)</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="order: ${orders}">
+                    <td th:text="${order.id}">Order ID</td>
+                    <td th:text="${order.creationDate}">Creation Date</td>
+                    <td th:text="${order.customer.id}">Customer ID</td>
+                    <td th:text="${order.employee.id}">Employee ID</td>
+                    <td th:text="${order.product.code}">Product Code</td>
+                    <td th:text="${order.product.size}">Product Size</td>
+                    <td th:text="${order.quantity}">Quantity</td>
+                    <td th:text="${order.total}">Total</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
