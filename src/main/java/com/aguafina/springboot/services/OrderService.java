@@ -8,5 +8,7 @@ import com.aguafina.springboot.models.Order;
 
 @Component
 public interface OrderService {
-    List<Order> getAllCustomerOrders();
+    List<Order> getAllOrders();
+
+    Order saveOrder(Order order);
 }
