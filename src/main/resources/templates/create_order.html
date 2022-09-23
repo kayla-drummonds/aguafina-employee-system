@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>New Order</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a th:href="@{/products}">Shop</a>
+                </li>
+                <li>
+                    <a th:href="@{/orders}">Orders</a>
+                </li>
+                <li>
+                    <a th:href="@{/customers}">Customers</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div id="new-order-form">
+        <form th:action="@{/orders}" th:object="${order}" method="POST"
+            oninput="calcTotal.value=parseFloat(p.value)*parseFloat(q.value)">
+            <label>Creation Date:</label>
+            <input type="date" th:field="*{creationDate}" title="creationDate" placeholder="MM/dd/yyyy">
+            <label>Customer ID:</label>
+            <input type="number" th:field="*{customer.id}" title="customerID">
+            <label>Employee ID:</label>
+            <input type="number" th:field="*{employee.id}" title="employeeID">
+            <label>Product Code:</label>
+            <select id="codes" title="codes" th:field="*{product.id}">
+                <option value="1">MWBLUE20</option>
+                <option value="2">MWBLU32</option>
+                <option value="3">MWCRA20</option>
+                <option value="4">MWCRA32</option>
+                <option value="5">MWLEM20</option>
+                <option value="6">MWLEM32</option>
+                <option value="7">MWMAN20</option>
+                <option value="8">MWMAN32</option>
+                <option value="9">MWORG20</option>
+                <option value="10">MWORG32</option>
+                <option value="11">MWPEA20</option>
+                <option value="12">MWPEA32</option>
+                <option value="13">MWRAS20</option>
+                <option value="14">MWRAS32</option>
+                <option value="15">MWSTR20</option>
+                <option value="16">MWSTR32</option>
+            </select>
+            <label>Quantity:</label>
+            <input type="number" th:field="*{quantity}" title="quantity" id="q">
+            <label>Price:</label>
+            <input type="number" th:field="*{product.price}" title="price" id="p">
+            <label>Total:</label>
+            <output name="calcTotal" for="p q"></output>
+            <label>Enter Total:</label>
+            <input type="number" th:field="*{total}" title="total">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
