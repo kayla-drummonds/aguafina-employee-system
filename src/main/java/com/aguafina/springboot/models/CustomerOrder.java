@@ -30,15 +30,53 @@ public class CustomerOrder {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
+
     public CustomerOrder() {
     }
 
-    public CustomerOrder(Product product, int quantity, double total, Date creationDate, Customer customer) {
+    public CustomerOrder(Product product, int quantity, double total, Date creationDate, Customer customer,
+            Employee employee) {
         this.product = product;
         this.quantity = quantity;
         this.total = total;
         this.creationDate = creationDate;
         this.customer = customer;
+        this.employee = employee;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     public Long getId() {
