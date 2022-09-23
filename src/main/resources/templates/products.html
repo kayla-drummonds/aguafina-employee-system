@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Customers</title>
+    <title>Products</title>
 </head>
 
 <body>
@@ -23,22 +23,25 @@
             </ul>
         </nav>
     </header>
+
     <div id="customers">
         <table>
             <thead>
                 <tr>
-                    <th>Customer ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
+                    <th>Mineral Water Variety</th>
+                    <th>Code</th>
+                    <th>Size</th>
+                    <th>Status</th>
+                    <th>Price</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="customer : ${customers}">
-                    <td th:text="${customer.id}"></td>
-                    <td th:text="${customer.firstName} + ' ' + ${customer.lastName}"></td>
-                    <td th:text="${customer.email}"></td>
-                    <td th:text="${customer.phone}"></td>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.variety}"></td>
+                    <td th:text="${product.code}"></td>
+                    <td th:text="${product.size}"></td>
+                    <td th:text="${product.status}"></td>
+                    <td th:text="${product.price}"></td>
                 </tr>
             </tbody>
         </table>

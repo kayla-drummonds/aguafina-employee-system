@@ -1,5 +1,7 @@
 package com.aguafina.springboot.models;
 
+import java.util.Date;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,23 +14,31 @@ public class CustomerOrder {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
-
-    @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
 
     @Column
     private int quantity;
 
+    @Column
+    private double total;
+
+    @Column
+    private Date creationDate;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
     public CustomerOrder() {
     }
 
-    public CustomerOrder(Order order, Product product, int quantity) {
-        this.order = order;
+    public CustomerOrder(Product product, int quantity, double total, Date creationDate, Customer customer) {
         this.product = product;
         this.quantity = quantity;
+        this.total = total;
+        this.creationDate = creationDate;
+        this.customer = customer;
     }
 
     public Long getId() {
@@ -37,14 +47,6 @@ public class CustomerOrder {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
     }
 
     public Product getProduct() {
