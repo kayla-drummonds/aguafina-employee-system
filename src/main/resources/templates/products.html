@@ -38,7 +38,7 @@
                 <span th:text="'Status: ' + ${product.status}">Availability</span><br>
                 <span th:text="${product.price}">Price</span>
             </p>
-            <a th:href="@{/products/update/{id}" class="btn btn-primary">Update Product</a>
+            <a th:href="@{/products/update/{id}(id=${product.id})}" class="btn btn-primary">Update Product</a>
         </div>
     </div>
 
