@@ -23,7 +23,7 @@
             </ul>
         </nav>
     </header>
-    <div id="new-order-form">
+    <div id="new-product-form">
         <form th:action="@{/products}" th:object="${product}" method="POST">
             <label>Product Code:</label>
             <input type="text" th:field="*{code}" title="code" placeholder="Enter Code">

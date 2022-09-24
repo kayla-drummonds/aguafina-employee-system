@@ -23,18 +23,16 @@
             </ul>
         </nav>
     </header>
-    <div id="new-order-form">
+    <div id="new-customer-form">
         <form th:action="@{/customers}" th:object="${customer}" method="POST">
-            <label>Product Code:</label>
-            <input type="text" th:field="*{code}" title="code" placeholder="Enter Code">
-            <label>Variety:</label>
-            <input type="text" th:field="*{variety}" title="variety">
-            <label>Size:</label>
-            <input type="number" th:field="*{size}" title="size">
-            <label>Price:</label>
-            <input type="number" th:field="*{price}" title="price">
-            <label>Status:</label>
-            <input type="text" th:field="*{status}" title="status">
+            <label>First name:</label>
+            <input type="text" th:field="*{firstName}" title="firstName" placeholder="Enter First Name">
+            <label>Last Name:</label>
+            <input type="text" th:field="*{lastName}" title="lastName" placeholder="Enter Last Name">
+            <label>Email</label>
+            <input type="email" th:field="*{email}" title="email" placeholder="Enter email">
+            <label>Phone</label>
+            <input type="text" th:field="*{phone}" title="phone">
             <button type="submit">Submit</button>
         </form>
     </div>
