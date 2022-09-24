@@ -9,4 +9,6 @@ import com.aguafina.springboot.models.Product;
 @Component
 public interface ProductService {
     List<Product> getAllProducts();
+
+    Product saveProduct(Product product);
 }

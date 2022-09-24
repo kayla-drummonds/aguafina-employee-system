@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>New Product</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a th:href="@{/products}">Shop</a>
+                </li>
+                <li>
+                    <a th:href="@{/orders}">Orders</a>
+                </li>
+                <li>
+                    <a th:href="@{/customers}">Customers</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div id="new-order-form">
+        <form th:action="@{/products}" th:object="${product}" method="POST">
+            <label>Product Code:</label>
+            <input type="text" th:field="*{code}" title="code" placeholder="Enter Code">
+            <label>Variety:</label>
+            <input type="text" th:field="*{variety}" title="variety">
+            <label>Size:</label>
+            <input type="number" th:field="*{size}" title="size">
+            <label>Price:</label>
+            <input type="number" th:field="*{price}" title="price">
+            <label>Status:</label>
+            <input type="text" th:field="*{status}" title="status">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -25,7 +25,7 @@
     </header>
     <div id="new-order-form">
         <form th:action="@{/orders}" th:object="${order}" method="POST"
-            oninput="calcTotal.value=parseFloat(p.value)*parseFloat(q.value)">
+            oninput="total.value=parseFloat(p.value)*parseFloat(q.value)">
             <label>Creation Date:</label>
             <input type="date" th:field="*{creationDate}" title="creationDate" placeholder="MM/dd/yyyy">
             <label>Customer ID:</label>
