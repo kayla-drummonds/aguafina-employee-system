@@ -26,15 +26,19 @@ public class Product {
     @Column
     private String status;
 
+    @Column
+    private String image;
+
     public Product() {
     }
 
-    public Product(String code, String variety, int size, double price, String status) {
+    public Product(String code, String variety, int size, double price, String status, String image) {
         this.code = code;
         this.variety = variety;
         this.size = size;
         this.price = price;
         this.status = status;
+        this.image = image;
     }
 
     public Long getId() {
@@ -83,6 +87,14 @@ public class Product {
 
     public void setVariety(String variety) {
         this.variety = variety;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
 }
