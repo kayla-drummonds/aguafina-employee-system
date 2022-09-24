@@ -28,20 +28,18 @@
         <table>
             <thead>
                 <tr>
-                    <th>Mineral Water Variety</th>
-                    <th>Code</th>
-                    <th>Size</th>
-                    <th>Status</th>
-                    <th>Price</th>
+                    <th>Employee ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="product : ${products}">
-                    <td th:text="${product.variety}"></td>
-                    <td th:text="${product.code}"></td>
-                    <td th:text="${product.size}"></td>
-                    <td th:text="${product.status}"></td>
-                    <td th:text="${product.price}"></td>
+                <tr th:each="employee : ${employees}">
+                    <td th:text="${employee.id}"></td>
+                    <td th:text="${employee.firstName}"></td>
+                    <td th:text="${employee.lastName}"></td>
+                    <td th:text="${employee.email}"></td>
                 </tr>
             </tbody>
         </table>
