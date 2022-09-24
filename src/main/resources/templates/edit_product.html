@@ -29,13 +29,13 @@
     <div id="update-product-form">
         <form th:action="@{/products/{id} (id=${product.id})}" th:object="${product}" method="POST">
             <label>Product ID: </label>
-            <input type="text" th:field="*{id}" title="id" disabled>
+            <input type="text" th:field="*{id}" title="id" readonly>
             <label>Product Code:</label>
-            <input type="text" th:field="*{code}" title="code" disabled>
+            <input type="text" th:field="*{code}" title="code" readonly>
             <label>Variety:</label>
-            <input type="text" th:field="*{variety}" title="variety" disabled>
+            <input type="text" th:field="*{variety}" title="variety" readonly>
             <label>Size:</label>
-            <input type="number" th:field="*{size}" title="size" disabled>
+            <input type="number" th:field="*{size}" title="size" readonly>
             <label>Price:</label>
             <input type="number" th:field="*{price}" title="price">
             <label>Status:</label>
