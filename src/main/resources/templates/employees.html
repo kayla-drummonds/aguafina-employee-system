@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Employees</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a th:href="@{/products}">Shop</a>
+                </li>
+                <li>
+                    <a th:href="@{/orders}">Orders</a>
+                </li>
+                <li>
+                    <a th:href="@{/customers}">Customers</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <a th:href="@{/employees/new}">Create New Employee</a>
+    <div id="employees">
+        <table>
+            <thead>
+                <tr>
+                    <th>Mineral Water Variety</th>
+                    <th>Code</th>
+                    <th>Size</th>
+                    <th>Status</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.variety}"></td>
+                    <td th:text="${product.code}"></td>
+                    <td th:text="${product.size}"></td>
+                    <td th:text="${product.status}"></td>
+                    <td th:text="${product.price}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
