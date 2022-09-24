@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Update Product</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a th:href="@{/products}">Shop</a>
+                </li>
+                <li>
+                    <a th:href="@{/orders}">Orders</a>
+                </li>
+                <li>
+                    <a th:href="@{/customers}">Customers</a>
+                </li>
+                <li>
+                    <a th:href="@{/employees}">Employees</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div id="update-product-form">
+        <form th:action="@{/products/{id} (id=${product.id})}" th:object="${product}" method="POST">
+            <label>Product ID: </label>
+            <input type="text" th:field="*{id}" title="id" disabled>
+            <label>Product Code:</label>
+            <input type="text" th:field="*{code}" title="code" disabled>
+            <label>Variety:</label>
+            <input type="text" th:field="*{variety}" title="variety" disabled>
+            <label>Size:</label>
+            <input type="number" th:field="*{size}" title="size" disabled>
+            <label>Price:</label>
+            <input type="number" th:field="*{price}" title="price">
+            <label>Status:</label>
+            <input type="text" th:field="*{status}" title="status">
+            <label>Image:</label>
+            <input type="text" th:field="*{image}" title="image">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
