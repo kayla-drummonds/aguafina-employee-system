@@ -1,6 +1,7 @@
 package com.aguafina.springboot.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "products")
@@ -12,21 +13,27 @@ public class Product {
     private Long id;
 
     @Column
+    @NotNull
     private String code;
 
     @Column
+    @NotNull
     private String variety;
 
     @Column
+    @NotNull
     private int size;
 
     @Column
+    @NotNull
     private double price;
 
     @Column
+    @NotNull
     private String status;
 
     @Column
+    @NotNull
     private String image;
 
     public Product() {
