@@ -34,22 +34,8 @@
             <input type="number" th:field="*{employee.id}" title="employeeID">
             <label>Product Code:</label>
             <select id="codes" title="codes" th:field="*{product.id}">
-                <option value="1">MWBLUE20</option>
-                <option value="2">MWBLU32</option>
-                <option value="3">MWCRA20</option>
-                <option value="4">MWCRA32</option>
-                <option value="5">MWLEM20</option>
-                <option value="6">MWLEM32</option>
-                <option value="7">MWMAN20</option>
-                <option value="8">MWMAN32</option>
-                <option value="9">MWORG20</option>
-                <option value="10">MWORG32</option>
-                <option value="11">MWPEA20</option>
-                <option value="12">MWPEA32</option>
-                <option value="13">MWRAS20</option>
-                <option value="14">MWRAS32</option>
-                <option value="15">MWSTR20</option>
-                <option value="16">MWSTR32</option>
+                <option th:each="product : ${products}" th:value="${product.id}" th:text="${product.code}">
+                    CODE</option>
             </select>
             <label>Quantity:</label>
             <input type="number" th:field="*{quantity}" title="quantity" id="q">

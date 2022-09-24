@@ -10,8 +10,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.aguafina.springboot.models.Customer;
 import com.aguafina.springboot.models.Order;
+import com.aguafina.springboot.models.Product;
+import com.aguafina.springboot.services.impl.CustomerServiceImpl;
 import com.aguafina.springboot.services.impl.OrderServiceImpl;
+import com.aguafina.springboot.services.impl.ProductServiceImpl;
 
 @Controller
 @RequestMapping
@@ -19,6 +23,12 @@ public class OrderController {
 
     @Autowired
     private OrderServiceImpl orderService;
+
+    @Autowired
+    private ProductServiceImpl productService;
+
+    @Autowired
+    private CustomerServiceImpl customerService;
 
     @GetMapping("/orders")
     public String listAllOrders(Model model) {
@@ -30,7 +40,11 @@ public class OrderController {
     @GetMapping("/orders/new")
     public String createOrder(Model model) {
         Order order = new Order();
+        List<Product> products = productService.getAllProducts();
+        List<Customer> customers = customerService.getAllCustomers();
         model.addAttribute("order", order);
+        model.addAttribute("products", products);
+        model.addAttribute("customers", customers);
         return "create_order";
     }
 
