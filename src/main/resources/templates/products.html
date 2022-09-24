@@ -52,7 +52,7 @@
                         th:src="@{/images/{image}(image=${product.image})}" alt="Fruit image">
                     <p class="card-text text-center">
                         <span th:text="'Status: ' + ${product.status}">Availability</span>
-                        <span th:text="' | Price: ' + ${product.price}">Price</span>
+                        <span th:text="' | Price: ' + ${#numbers.formatCurrency(product.price)}">Price</span>
                     </p>
                 </div>
                 <div class="card-footer bg-transparent border-info text-center">
