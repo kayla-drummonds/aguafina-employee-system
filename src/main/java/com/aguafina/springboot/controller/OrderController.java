@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.aguafina.springboot.models.Customer;
+import com.aguafina.springboot.models.Employee;
 import com.aguafina.springboot.models.Order;
 import com.aguafina.springboot.models.Product;
 import com.aguafina.springboot.services.impl.CustomerServiceImpl;
+import com.aguafina.springboot.services.impl.EmployeeServiceImpl;
 import com.aguafina.springboot.services.impl.OrderServiceImpl;
 import com.aguafina.springboot.services.impl.ProductServiceImpl;
 
@@ -30,6 +32,9 @@ public class OrderController {
     @Autowired
     private CustomerServiceImpl customerService;
 
+    @Autowired
+    private EmployeeServiceImpl employeeService;
+
     @GetMapping("/orders")
     public String listAllOrders(Model model) {
         List<Order> orders = orderService.getAllOrders();
@@ -42,9 +47,11 @@ public class OrderController {
         Order order = new Order();
         List<Product> products = productService.getAllProducts();
         List<Customer> customers = customerService.getAllCustomers();
+        List<Employee> employees = employeeService.getAllEmployees();
         model.addAttribute("order", order);
         model.addAttribute("products", products);
         model.addAttribute("customers", customers);
+        model.addAttribute("employees", employees);
         return "create_order";
     }
 

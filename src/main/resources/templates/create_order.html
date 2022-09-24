@@ -32,9 +32,16 @@
             <label>Creation Date:</label>
             <input type="date" th:field="*{creationDate}" title="creationDate" placeholder="MM/dd/yyyy">
             <label>Customer ID:</label>
-            <input type="number" th:field="*{customer.id}" title="customerID">
+            <select id="customers" title="customers" th:field="*{customer.id}">
+                <option th:each="customer : ${customers}" th:value="${customer.id}" th:text="${customer.id}">Customer ID
+                </option>
+            </select>
             <label>Employee ID:</label>
-            <input type="number" th:field="*{employee.id}" title="employeeID">
+            <select id="employees" title="employees" th:field="*{employee.id}">
+                <option th:each="employee : ${employees}" th:value="${employee.id}" th:text="${employee.id}">
+                    Employee ID
+                </option>
+            </select>
             <label>Product Code:</label>
             <select id="codes" title="codes" th:field="*{product.id}">
                 <option th:each="product : ${products}" th:value="${product.id}" th:text="${product.code}">
