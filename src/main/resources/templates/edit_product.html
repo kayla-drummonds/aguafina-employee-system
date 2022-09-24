@@ -27,15 +27,15 @@
         </nav>
     </header>
     <div id="update-product-form">
-        <form th:action="@{/products/{id} (id=${product.id})}" th:object="${product}" method="POST">
+        <form th:action="@{/products/{id}(id=${product.id})}" th:object="${product}" method="POST">
             <label>Product ID: </label>
-            <input type="text" th:field="*{id}" title="id" readonly>
+            <input type="text" th:field="*{id}" title="id" disabled>
             <label>Product Code:</label>
-            <input type="text" th:field="*{code}" title="code" readonly>
+            <input type="text" th:field="*{code}" title="code" disabled>
             <label>Variety:</label>
-            <input type="text" th:field="*{variety}" title="variety" readonly>
+            <input type="text" th:field="*{variety}" title="variety" disabled>
             <label>Size:</label>
-            <input type="number" th:field="*{size}" title="size" readonly>
+            <input type="number" th:field="*{size}" title="size" disabled>
             <label>Price:</label>
             <input type="number" th:field="*{price}" title="price">
             <label>Status:</label>
