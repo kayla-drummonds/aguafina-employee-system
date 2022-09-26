@@ -1,4 +1,4 @@
-package com.aguafina.springboot.controller;
+package com.michaeladrummonds.aguafina.controller;
 
 import java.util.List;
 
@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.aguafina.springboot.models.Customer;
-import com.aguafina.springboot.models.Employee;
-import com.aguafina.springboot.models.Order;
-import com.aguafina.springboot.models.Product;
-import com.aguafina.springboot.services.impl.CustomerServiceImpl;
-import com.aguafina.springboot.services.impl.EmployeeServiceImpl;
-import com.aguafina.springboot.services.impl.OrderServiceImpl;
-import com.aguafina.springboot.services.impl.ProductServiceImpl;
+import com.michaeladrummonds.aguafina.models.Customer;
+import com.michaeladrummonds.aguafina.models.Employee;
+import com.michaeladrummonds.aguafina.models.Order;
+import com.michaeladrummonds.aguafina.models.Product;
+import com.michaeladrummonds.aguafina.services.impl.CustomerServiceImpl;
+import com.michaeladrummonds.aguafina.services.impl.EmployeeServiceImpl;
+import com.michaeladrummonds.aguafina.services.impl.OrderServiceImpl;
+import com.michaeladrummonds.aguafina.services.impl.ProductServiceImpl;
 
 @Controller
 @RequestMapping

@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.michaeladrummonds.aguafina.models.Customer;
+import com.michaeladrummonds.aguafina.services.impl.CustomerServiceImpl;
+
 @Controller
 @RequestMapping
 public class CustomerController {

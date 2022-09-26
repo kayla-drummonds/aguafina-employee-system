@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.michaeladrummonds.aguafina.models.Product;
 import com.michaeladrummonds.aguafina.services.impl.ProductServiceImpl;
 
 @Controller
