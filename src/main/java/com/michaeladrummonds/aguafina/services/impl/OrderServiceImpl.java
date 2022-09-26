@@ -3,12 +3,14 @@ package com.michaeladrummonds.aguafina.services.impl;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.michaeladrummonds.aguafina.models.Order;
 import com.michaeladrummonds.aguafina.repository.OrderRepository;
 import com.michaeladrummonds.aguafina.services.OrderService;
 
 @Service
+@Transactional
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;

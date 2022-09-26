@@ -3,12 +3,14 @@ package com.michaeladrummonds.aguafina.services.impl;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.michaeladrummonds.aguafina.models.Product;
 import com.michaeladrummonds.aguafina.repository.ProductRepository;
 import com.michaeladrummonds.aguafina.services.ProductService;
 
 @Service
+@Transactional
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
