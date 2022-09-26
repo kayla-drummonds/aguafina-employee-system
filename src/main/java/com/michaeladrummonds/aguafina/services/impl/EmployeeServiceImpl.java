@@ -1,12 +1,12 @@
-package com.aguafina.springboot.services.impl;
+package com.michaeladrummonds.aguafina.services.impl;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.aguafina.springboot.models.Employee;
-import com.aguafina.springboot.repository.EmployeeRepository;
-import com.aguafina.springboot.services.EmployeeService;
+import com.michaeladrummonds.aguafina.models.Employee;
+import com.michaeladrummonds.aguafina.repository.EmployeeRepository;
+import com.michaeladrummonds.aguafina.services.EmployeeService;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {

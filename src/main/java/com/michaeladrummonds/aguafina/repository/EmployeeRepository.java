@@ -1,9 +1,9 @@
-package com.aguafina.springboot.repository;
+package com.michaeladrummonds.aguafina.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.aguafina.springboot.models.Employee;
+import com.michaeladrummonds.aguafina.models.Employee;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {

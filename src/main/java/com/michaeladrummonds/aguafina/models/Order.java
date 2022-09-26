@@ -1,4 +1,4 @@
-package com.aguafina.springboot.models;
+package com.michaeladrummonds.aguafina.models;
 
 import java.util.Date;
 

@@ -1,12 +1,12 @@
-package com.aguafina.springboot.services.impl;
+package com.michaeladrummonds.aguafina.services.impl;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.aguafina.springboot.models.Order;
-import com.aguafina.springboot.repository.OrderRepository;
-import com.aguafina.springboot.services.OrderService;
+import com.michaeladrummonds.aguafina.models.Order;
+import com.michaeladrummonds.aguafina.repository.OrderRepository;
+import com.michaeladrummonds.aguafina.services.OrderService;
 
 @Service
 public class OrderServiceImpl implements OrderService {

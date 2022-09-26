@@ -1,12 +1,12 @@
-package com.aguafina.springboot.services.impl;
+package com.michaeladrummonds.aguafina.services.impl;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.aguafina.springboot.models.Product;
-import com.aguafina.springboot.repository.ProductRepository;
-import com.aguafina.springboot.services.ProductService;
+import com.michaeladrummonds.aguafina.models.Product;
+import com.michaeladrummonds.aguafina.repository.ProductRepository;
+import com.michaeladrummonds.aguafina.services.ProductService;
 
 @Service
 public class ProductServiceImpl implements ProductService {

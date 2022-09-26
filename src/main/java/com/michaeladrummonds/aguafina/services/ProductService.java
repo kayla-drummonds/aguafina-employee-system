@@ -1,10 +1,10 @@
-package com.aguafina.springboot.services;
+package com.michaeladrummonds.aguafina.services;
 
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.aguafina.springboot.models.Product;
+import com.michaeladrummonds.aguafina.models.Product;
 
 @Component
 public interface ProductService {

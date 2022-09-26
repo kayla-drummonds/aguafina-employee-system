@@ -1,4 +1,4 @@
-package com.aguafina.springboot.controller;
+package com.michaeladrummonds.aguafina.controller;
 
 import java.util.List;
 
@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.aguafina.springboot.models.Product;
-import com.aguafina.springboot.services.impl.ProductServiceImpl;
+import com.michaeladrummonds.aguafina.services.impl.ProductServiceImpl;
 
 @Controller
 @RequestMapping

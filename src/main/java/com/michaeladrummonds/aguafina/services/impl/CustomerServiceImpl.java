@@ -1,12 +1,12 @@
-package com.aguafina.springboot.services.impl;
+package com.michaeladrummonds.aguafina.services.impl;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.aguafina.springboot.models.Customer;
-import com.aguafina.springboot.repository.CustomerRepository;
-import com.aguafina.springboot.services.CustomerService;
+import com.michaeladrummonds.aguafina.models.Customer;
+import com.michaeladrummonds.aguafina.repository.CustomerRepository;
+import com.michaeladrummonds.aguafina.services.CustomerService;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
