@@ -32,23 +32,24 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">Orders</a>
                         <ul class="dropdown-menu">
                             <li class="nav-item">
                                 <a class="dropdown-item" th:href="@{/orders}">All Orders</a>
                             </li>
                             <li class="nav-item">
-                                <a class="dropdown-item" aria-current="page" th:href="@{/orders/new}">Add New Order</a>
+                                <a class="dropdown-item" th:href="@{/orders/new}">Add New Order</a>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">Customer</a>
+                            aria-expanded="false">Customers</a>
                         <ul class="dropdown-menu">
                             <li class="nav-item">
-                                <a class="dropdown-item" aria-current="page" th:href="@{/customers}">All Customers</a>
+                                <a class="dropdown-item" aria-current="page" th:href="@{/customers}">All
+                                    Customers</a>
                             </li>
                             <li class="nav-item">
                                 <a class="dropdown-item" th:href="@{/customers/new}">Add New
@@ -74,17 +75,17 @@
         </nav>
     </header>
     <a th:href="@{/customers/new}">Create a new customer</a>
-    <div id="customers">
-        <table>
-            <thead>
+    <div id="customers" class="container p-2">
+        <table class="table table-striped table-info table-hover table-bordered text-center">
+            <thead class="table-light">
                 <tr>
-                    <th>Customer ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
+                    <th scope="col">Customer ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="table-group-divider">
                 <tr th:each="customer : ${customers}">
                     <td th:text="${customer.id}"></td>
                     <td th:text="${customer.firstName} + ' ' + ${customer.lastName}"></td>
