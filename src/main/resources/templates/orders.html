@@ -4,76 +4,81 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/css/uikit.min.css" />
     <title>Orders</title>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-info">
-            <span class="navbar-brand">Aguafina</span>
-            <button title="main-menu" class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarContent">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">Shop</a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item">
-                                <a class="dropdown-item" th:href="@{/products}">All Products</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="dropdown-item" th:href="@{/products/new}">Add New Product</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">Orders</a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item">
-                                <a class="dropdown-item" aria-current="page" th:href="@{/orders}">All Orders</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="dropdown-item" th:href="@{/orders/new}">Add New Order</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">Customer</a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item">
-                                <a class="dropdown-item" th:href="@{/customers}">All Customers</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="dropdown-item" th:href="@{/customers/new}">Add New Customer</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">Employees</a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item">
-                                <a class="dropdown-item" th:href="@{/employees}">All Employees</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="dropdown-item" th:href="@{/employees/new}">Add New Employee</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+        <nav class="uk-navbar-container" uk-navbar>
+            <div class="uk-navbar-center">
+                <div class="uk-navbar-center-left">
+                    <ul class="uk-navbar-nav">
+                        <li>
+                            <a href="#">Shop</a>
+                            <div class="uk-navbar-dropdown">
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <li class="uk-active">
+                                        <a th:href="@{/products}">All Products</a>
+                                    </li>
+                                    <li>
+                                        <a th:href="@{/products/new}">Add New Product</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">Orders</a>
+                            <div class="uk-navbar-dropdown">
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <li>
+                                        <a th:href="@{/orders}">All Orders</a>
+                                    </li>
+                                    <li>
+                                        <a th:href="@{/orders/new}">Add New Order</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <a class="uk-navbar-item uk-logo" href="#">Aguafina</a>
+                <div class="uk-navbar-center-right">
+                    <ul class="uk-navbar-nav">
+                        <li>
+                            <a href="#">Customers</a>
+                            <div class="uk-navbar-dropdown">
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <li>
+                                        <a th:href="@{/customers}">All Customers</a>
+                                    </li>
+                                    <li>
+                                        <a th:href="@{/customers/new}">Add New Customer</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">Employees</a>
+                            <div class="uk-navbar-dropdown">
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <li>
+                                        <a th:href="@{/employees}">All Employees</a>
+                                    </li>
+                                    <li>
+                                        <a th:href="@{/employees/new}">Add New Employee</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
     <a th:href="@{/orders/new}">Create a new order</a>
-    <div class="container" id="orders">
-        <table class="table table-hover">
+    <div class="uk-overflow-auto" id="orders">
+        <table class="uk-table uk-table-divider uk-table-striped uk-table-small">
             <thead>
                 <tr>
                     <th scope="col">Order ID</th>
@@ -98,12 +103,8 @@
             </tbody>
         </table>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit-icons.min.js"></script>
 </body>
 
 </html>
