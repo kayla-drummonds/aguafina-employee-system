@@ -1,0 +1,109 @@
+/*  
+--lapis-lazuli: #135C9Eff;
+--light-gray: #D0D0D0ff;
+--cultured: #EEEEEEff;
+--queen-blue: #41709Dff;
+--light-gray-2: #CACACAff;
+font-family: 'Noto Sans Ethiopic', sans-serif;
+ */
+
+body {
+    font-family: 'Noto Sans Ethiopic', sans-serif;
+}
+
+/* navigation bar properties */
+.navbar {
+    background-color:#135C9Eff;
+    text-align:center;
+    width:100%
+}
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+.navbar li {
+    display: inline-block;
+}
+
+.navbar li a, .dropbtn {
+    display:inline-block;
+    text-align:center;
+    padding: 14px 16px;
+    text-decoration:none;
+}
+
+.navbar li a:hover, .dropdown:hover {
+    background-color: #EEEEEEff;
+    color:#135C9Eff;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #135C9Eff;
+    color:#EEEEEEff;
+    z-index: 1;
+}
+  
+.dropdown-content a {
+    color: #EEEEEEff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+  
+.dropdown-content a:hover {
+    background-color: #EEEEEEff;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+/* grid layout properties */
+.grid-container {
+    display:grid;
+    background-color:#CACACAff;
+}
+  
+.grid-item {
+    text-align:center;
+}
+
+/* global form properties */
+.uk-input {
+    width: 250px;
+}
+
+form {
+    margin: auto;
+    padding: 10%;
+    border: solid 2px;
+    background-color:#EEEEEEff;
+}
+
+h3 {
+    text-align: center;
+    color:#41709Dff;
+}
+
+.uk-form-label {
+    font-size: 18px;
+    color:#41709Dff;
+}
+
+.uk-button {
+    background-color: white;
+    color: #135C9Eff;
+    border: 2px solid #135C9Eff;
+    transition-duration: 0.4s;
+    margin-left:160px;
+}
+  
+.uk-button:hover {
+    background-color: #135C9Eff;
+    color: white;
+}

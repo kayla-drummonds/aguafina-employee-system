@@ -5,98 +5,65 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/css/uikit.min.css" />
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
     <title>Products</title>
 </head>
 
 <body>
     <header>
-        <nav class="uk-navbar-container" uk-navbar>
-            <div class="uk-navbar-center">
-                <div class="uk-navbar-center-left">
-                    <ul class="uk-navbar-nav">
-                        <li>
-                            <a href="#">Shop</a>
-                            <div class="uk-navbar-dropdown">
-                                <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li class="uk-active">
-                                        <a th:href="@{/products}">All Products</a>
-                                    </li>
-                                    <li>
-                                        <a th:href="@{/products/new}">Add New Product</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#">Orders</a>
-                            <div class="uk-navbar-dropdown">
-                                <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li>
-                                        <a th:href="@{/orders}">All Orders</a>
-                                    </li>
-                                    <li>
-                                        <a th:href="@{/orders/new}">Add New Order</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <a class="uk-navbar-item uk-logo" href="#">Aguafina</a>
-                <div class="uk-navbar-center-right">
-                    <ul class="uk-navbar-nav">
-                        <li>
-                            <a href="#">Customers</a>
-                            <div class="uk-navbar-dropdown">
-                                <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li>
-                                        <a th:href="@{/customers}">All Customers</a>
-                                    </li>
-                                    <li>
-                                        <a th:href="@{/customers/new}">Add New Customer</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#">Employees</a>
-                            <div class="uk-navbar-dropdown">
-                                <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li>
-                                        <a th:href="@{/employees}">All Employees</a>
-                                    </li>
-                                    <li>
-                                        <a th:href="@{/employees/new}">Add New Employee</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <nav class="navbar">
+            <ul>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Shop</a>
+                    <div class="dropdown-content">
+                        <a th:href="@{/products}">All Products</a>
+                        <a th:href="@{/products/new}">Add New Product</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Orders</a>
+                    <div class="dropdown-content">
+                        <a th:href="@{/orders}">All Orders</a>
+                        <a th:href="@{/orders/new}">Add New Order</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Customers</a>
+                    <div class="dropdown-content">
+                        <a th:href="@{/customers}">All Customers</a>
+                        <a th:href="@{/customers/new}">Add New Customer</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Employees</a>
+                    <div class="dropdown-content">
+                        <a th:href="@{/employees}">All Employees</a>
+                        <a th:href="@{/employees/new}">Add New Employee</a>
+                    </div>
+                </li>
+            </ul>
         </nav>
     </header>
-    <div class="uk-container uk-container-expand">
-        <div class="uk-grid-small uk-text-center" uk-grid>
+    <div class="grid-container">
+        <div class="grid-item">
             <div class="uk-flex uk-flex-wrap uk-padding-small">
                 <div class="uk-width-1-4 uk-margin-small uk-card uk-card-primary uk-card-hover uk-card-small"
                     th:each="product : ${products}">
                     <div class="uk-card-header">
-                        <h3 class="uk-card-title uk-align-center" th:text="${product.code}">Product Code</h3>
-                        <h4 class="uk-margin-remove-top uk-align-center"
+                        <h3 class="uk-card-title" th:text="${product.code}">Product Code</h3>
+                        <h4 class="uk-margin-remove-top"
                             th:text="'Variety: ' + ${product.variety} + ' ' + ${product.size} + ' oz'">
                             Product Variety and size</h4>
                     </div>
                     <div class="uk-card-media-top">
                         <img th:src="@{/images/{image}(image=${product.image})}" alt="Fruit image">
                     </div>
-                    <div class="uk-card-body uk-align-center">
+                    <div class="uk-card-body">
                         <span th:text="'Status: ' + ${product.status}">Availability</span>
                         <span th:text="' | Price: ' + ${#numbers.formatCurrency(product.price)}">Price</span>
                     </div>
                     <footer class="uk-card-footer">
-                        <a th:href="@{/products/edit/{id}(id=${product.id})}"
-                            class="uk-button uk-button-default uk-align-center">Update
+                        <a th:href="@{/products/edit/{id}(id=${product.id})}" class="uk-button uk-button-default">Update
                             Product</a>
                     </footer>
                 </div>
