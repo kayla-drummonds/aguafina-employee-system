@@ -95,6 +95,10 @@ h3 {
     color:#41709Dff;
 }
 
+.uk-select {
+    width: 250px;
+  }
+
 .uk-button {
     background-color: white;
     color: #135C9Eff;
