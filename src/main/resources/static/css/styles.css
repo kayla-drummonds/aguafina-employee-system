@@ -100,10 +100,33 @@ h3 {
     color: #135C9Eff;
     border: 2px solid #135C9Eff;
     transition-duration: 0.4s;
-    margin-left:160px;
+    margin-left:25%;
+    margin-right:25%;
 }
   
 .uk-button:hover {
     background-color: #135C9Eff;
     color: white;
+}
+
+/* global table properties */
+.uk-table th, .uk-table td {
+    text-align: center;
+    padding: 15px;
+    border-bottom: 1px solid black;
+}
+
+.uk-table tr:nth-child(even) {
+    background-color:#EEEEEEff;
+    color:#41709Dff;
+}
+
+.uk-table tr:nth-child(odd) {
+    background-color:#41709Dff;
+    color:#EEEEEEff;
+}
+
+.uk-table tr:hover, .uk-table th {
+    background-color:#135C9Eff;
+    color:#EEEEEEff;
 }
