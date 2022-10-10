@@ -48,7 +48,7 @@
         </nav>
     </header>
     <div id="new-employee-form" class="grid-container">
-        <form th:action="@{/employees}" th:object="${employee}" method="POST">
+        <form class="uk-form-horizontal" th:action="@{/employees}" th:object="${employee}" method="POST">
             <h3>Add New Employee</h3>
             <div class="uk-margin">
                 <label class="uk-form-label" for="firstName">First Name:</label>
