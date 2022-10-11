@@ -66,7 +66,7 @@
                         <span th:text="' | Price: ' + ${#numbers.formatCurrency(product.price)}">Price</span>
                     </div>
                     <footer class="uk-card-footer">
-                        <a th:href="@{/products/edit/{id}(id=${product.id})}" class="uk-button uk-button-default">Update
+                        <a th:href="@{/products/edit/{id}(id=${product.id})}" class="uk-button">Update
                             Product</a>
                     </footer>
                 </div>

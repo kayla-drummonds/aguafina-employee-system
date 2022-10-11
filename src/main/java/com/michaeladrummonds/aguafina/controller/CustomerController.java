@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -41,6 +42,28 @@ public class CustomerController {
     @PostMapping("/customers")
     public String saveCustomer(@ModelAttribute("customer") Customer customer) {
         customerService.saveCustomer(customer);
+        return "redirect:/customers";
+    }
+
+    @GetMapping("/customers/edit/{id}")
+    public String editCustomer(@PathVariable Long id, Model model) {
+        model.addAttribute("customer", customerService.getCustomerById(id));
+        return "edit_customer";
+    }
+
+    @PostMapping("/customers/{id}")
+    public String updateCustomer(@PathVariable Long id, @ModelAttribute("customer") Customer customer, Model model) {
+        Customer existingCustomer = customerService.getCustomerById(id);
+        existingCustomer.setId(customer.getId());
+        existingCustomer.setFirstName(customer.getFirstName());
+        existingCustomer.setLastName(customer.getLastName());
+        existingCustomer.setEmail(customer.getEmail());
+        existingCustomer.setAddress(customer.getAddress());
+        existingCustomer.setCity(customer.getCity());
+        existingCustomer.setState(customer.getState());
+        existingCustomer.setZipCode(customer.getZipCode());
+
+        customerService.updateCustomer(existingCustomer);
         return "redirect:/customers";
     }
 

@@ -11,4 +11,6 @@ public interface OrderService {
     List<Order> getAllOrders();
 
     Order saveOrder(Order order);
+
+    void deleteOrderById(Long id);
 }
