@@ -47,7 +47,21 @@
             </ul>
         </nav>
     </header>
-    <a th:href="@{/orders/new}">Create a new order</a>
+    <button class="uk-button" type="button" uk-toggle="target: #create-new-order">Create New
+        Order</button>
+    <div id="create-new-order" uk-modal>
+        <div class="uk-modal-dialog">
+            <button class="uk-modal-close-default uk-margin-auto-vertical" type="button" uk-close
+                title="close"></button>
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title">Choose customer type</h2>
+            </div>
+            <div class="uk-modal-body">
+                <a th:href="@{/customers/new}" class="uk-button">New Customer</a>
+                <a th:href="@{/orders/new}" class="uk-button">Existing Customer</a>
+            </div>
+        </div>
+    </div>
     <div class="grid-container" id="orders">
         <table class="uk-table">
             <thead>

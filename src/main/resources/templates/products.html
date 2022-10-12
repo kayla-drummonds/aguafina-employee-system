@@ -62,11 +62,12 @@
                         <img th:src="@{/images/{image}(image=${product.image})}" alt="Fruit image">
                     </div>
                     <div class="uk-card-body">
-                        <span th:text="'Status: ' + ${product.status}">Availability</span>
-                        <span th:text="' | Price: ' + ${#numbers.formatCurrency(product.price)}">Price</span>
+                        <p th:text="'Status: ' + ${product.status}">Availability</p>
+                        <p th:text="'Price: ' + ${#numbers.formatCurrency(product.price)}">Price</p>
                     </div>
                     <footer class="uk-card-footer">
-                        <a th:href="@{/products/edit/{id}(id=${product.id})}" class="uk-button">Update
+                        <a th:href="@{/products/edit/{id}(id=${product.id})}" class="uk-button"
+                            id="update-button">Update
                             Product</a>
                     </footer>
                 </div>

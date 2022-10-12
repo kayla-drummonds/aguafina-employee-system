@@ -74,7 +74,8 @@
                     <td th:text="${customer.state}"></td>
                     <td th:text="${customer.zipCode}"></td>
                     <td>
-                        <a th:href="@{/customers/edit/{id}(id=${customer.id})}" class="uk-button">Update</a>
+                        <a th:href="@{/customers/edit/{id}(id=${customer.id})}" class="uk-button"
+                            id="update-button">Update</a>
                     </td>
                 </tr>
             </tbody>

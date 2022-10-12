@@ -1,9 +1,9 @@
 /*  
---lapis-lazuli: #135C9Eff;
---light-gray: #D0D0D0ff;
---cultured: #EEEEEEff;
---queen-blue: #41709Dff;
---light-gray-2: #CACACAff;
+--lapis-lazuli: #135C9E;
+--steel-blue: #477EAF;
+--air-superiority-blue: #7BA0C1;
+--light-steel-blue: #AFC1D2;
+--platinum: #E3E3E3;
 font-family: 'Noto Sans Ethiopic', sans-serif;
  */
 
@@ -13,7 +13,7 @@ body {
 
 /* navigation bar properties */
 .navbar {
-    background-color:#135C9Eff;
+    background-color:#135C9E;
     text-align:center;
     width:100%
 }
@@ -36,20 +36,20 @@ body {
 }
 
 .navbar li a:hover, .dropdown:hover {
-    background-color: #EEEEEEff;
-    color:#135C9Eff;
+    background-color: #E3E3E3;
+    color:#135C9E;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #135C9Eff;
-    color:#EEEEEEff;
+    background-color: #135C9E;
+    color:#E3E3E3;
     z-index: 1;
 }
   
 .dropdown-content a {
-    color: #EEEEEEff;
+    color: #E3E3E3;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -57,7 +57,7 @@ body {
 }
   
 .dropdown-content a:hover {
-    background-color: #EEEEEEff;
+    background-color: #E3E3E3;
 }
 .dropdown:hover .dropdown-content {
     display: block;
@@ -66,11 +66,25 @@ body {
 /* grid layout properties */
 .grid-container {
     display:grid;
-    background-color:#CACACAff;
+    background-color:#AFC1D2;
 }
   
 .grid-item {
     text-align:center;
+}
+
+/* button properties */
+#update-button {
+    background-color: #135C9Eff;
+    color: #E3E3E3ff;
+    border: 2px solid #E3E3E3ff;
+    transition-duration: 0.4s;
+}
+  
+#update-button:hover {
+    background-color: #E3E3E3ff;
+    color:#135C9Eff;
+    border: 2px solid #135C9Eff;
 }
 
 /* global form properties */
@@ -82,36 +96,22 @@ form {
     margin: auto;
     padding: 10%;
     border: solid 2px;
-    background-color:#EEEEEEff;
+    background-color:#E3E3E3ff;
 }
 
 h3 {
     text-align: center;
-    color:#41709Dff;
+    color:#477EAF;
 }
 
 .uk-form-label {
     font-size: 18px;
-    color:#41709Dff;
+    color:#477EAF;
 }
 
 .uk-select {
     width: 250px;
   }
-
-.uk-button {
-    background-color: white;
-    color: #135C9Eff;
-    border: 2px solid #135C9Eff;
-    transition-duration: 0.4s;
-    margin-left:25%;
-    margin-right:25%;
-}
-  
-.uk-button:hover {
-    background-color: #135C9Eff;
-    color: white;
-}
 
 /* global table properties */
 .uk-table th, .uk-table td {
@@ -121,16 +121,16 @@ h3 {
 }
 
 .uk-table tr:nth-child(even) {
-    background-color:#EEEEEEff;
-    color:#41709Dff;
+    background-color:whitesmoke;
+    color: #477EAF;
 }
 
 .uk-table tr:nth-child(odd) {
-    background-color:#41709Dff;
-    color:#EEEEEEff;
+    background-color:#7ba0c1;
+    color:#E3E3E3ff;
 }
 
 .uk-table tr:hover, .uk-table th {
-    background-color:#135C9Eff;
-    color:#EEEEEEff;
+    background-color:#477EAF;
+    color:#E3E3E3ff;
 }
