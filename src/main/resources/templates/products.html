@@ -54,8 +54,7 @@
                     th:each="product : ${products}">
                     <div class="uk-card-header">
                         <h3 class="uk-card-title" th:text="${product.code}">Product Code</h3>
-                        <h4 class="uk-margin-remove-top"
-                            th:text="'Variety: ' + ${product.variety} + ' ' + ${product.size} + ' oz'">
+                        <h4 class="uk-margin-remove-top" th:text="${product.variety} + ' ' + ${product.size} + ' oz'">
                             Product Variety and size</h4>
                     </div>
                     <div class="uk-card-media-top">
