@@ -87,6 +87,32 @@ body {
     border: 2px solid #135C9Eff;
 }
 
+#delete-button {
+    background-color: red;
+    color: #E3E3E3ff;
+    border: 2px solid #E3E3E3ff;
+    transition-duration: 0.4s;
+}
+
+#delete-button:hover {
+    background-color: #E3E3E3ff;
+    color:red;
+    border: 2px solid red;
+}
+
+#create-button {
+    background-color: #477EAF;
+    color: #E3E3E3ff;
+    border: 2px solid #E3E3E3ff;
+    transition-duration: 0.4s;
+}
+
+#create-button:hover {
+    background-color: #E3E3E3ff;
+    color:#477EAF;
+    border: 2px solid #477EAF;
+}
+
 /* global form properties */
 .uk-input {
     width: 250px;
@@ -121,7 +147,7 @@ h3 {
 }
 
 .uk-table tr:nth-child(even) {
-    background-color:whitesmoke;
+    background-color:white;
     color: #477EAF;
 }
 

@@ -47,7 +47,7 @@
             </ul>
         </nav>
     </header>
-    <button class="uk-button" type="button" uk-toggle="target: #create-new-order">Create New
+    <button class="uk-button" type="button" uk-toggle="target: #create-new-order" id="create-button">Create New
         Order</button>
     <div id="create-new-order" uk-modal>
         <div class="uk-modal-dialog">
@@ -57,8 +57,8 @@
                 <h2 class="uk-modal-title">Choose customer type</h2>
             </div>
             <div class="uk-modal-body">
-                <a th:href="@{/customers/new}" class="uk-button">New Customer</a>
-                <a th:href="@{/orders/new}" class="uk-button">Existing Customer</a>
+                <a th:href="@{/customers/new}" class="uk-button uk-button-secondary">New Customer</a>
+                <a th:href="@{/orders/new}" class="uk-button uk-button-secondary">Existing Customer</a>
             </div>
         </div>
     </div>
@@ -86,7 +86,7 @@
                     <td th:text="${order.quantity}">Quantity</td>
                     <td th:text="${#numbers.formatCurrency(order.total)}">Total</td>
                     <td>
-                        <a th:href="@{/orders/{id}(id=${order.id})}">Delete</a>
+                        <a th:href="@{/orders/{id}(id=${order.id})}" class="uk-button" id="delete-button">Delete</a>
                     </td>
                 </tr>
             </tbody>
