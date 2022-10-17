@@ -3,6 +3,7 @@ package com.michaeladrummonds.aguafina.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -66,9 +67,10 @@ public class ProductController {
     }
 
     @GetMapping("/products/{status}")
-    public String getProductsByStatus(Model model, @ModelAttribute("status") Product product) {
+    public String getProductsByStatus(Model model, @Param("status") String status, Product product) {
         List<Product> productsByStatus = productService.getProductByStatus(product.getStatus());
-        model.addAttribute("product", productsByStatus);
+        model.addAttribute("productsByStatus", productsByStatus);
+        model.addAttribute("status", status);
         return "status_products";
     }
 }

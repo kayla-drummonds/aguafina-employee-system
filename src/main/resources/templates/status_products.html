@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic&display=swap" rel="stylesheet">
-    <title>Products</title>
+    <title>Products By Status</title>
 </head>
 
 <body>
@@ -56,7 +56,7 @@
         <div class="grid-item">
             <div class="uk-flex uk-flex-wrap uk-padding-small">
                 <div class="uk-width-1-4 uk-margin-small uk-card uk-card-primary uk-card-hover uk-card-small"
-                    th:each="product : ${products}">
+                    th:each="product : ${productsByStatus}">
                     <div class="uk-card-header">
                         <h3 class="uk-card-title" th:text="${product.code}">Product Code</h3>
                         <h4 class="uk-margin-remove-top" th:text="${product.variety} + ' ' + ${product.size} + ' oz'">

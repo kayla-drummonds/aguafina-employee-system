@@ -80,7 +80,10 @@
                 <tr th:each="order: ${orders}">
                     <td th:text="${order.id}">Order ID</td>
                     <td th:text="${#dates.format(order.creationDate,'MM-dd-yyyy')}">Creation Date</td>
-                    <td th:text="${order.customer.id}">Customer ID</td>
+                    <td>
+                        <a th:href="@{/orders/customer/{customer}(customer=${order.customer.id})}"
+                            th:text="${order.customer.id}"></a>
+                    </td>
                     <td th:text="${order.employee.id}">Employee ID</td>
                     <td th:text="${order.product.code}">Product Code</td>
                     <td th:text="${order.quantity}">Quantity</td>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import com.michaeladrummonds.aguafina.models.Customer;
 import com.michaeladrummonds.aguafina.models.Order;
 
 @Component
@@ -13,4 +14,6 @@ public interface OrderService {
     Order saveOrder(Order order);
 
     void deleteOrderById(Long id);
+
+    List<Order> getOrderByCustomerId(Long id, Customer customer);
 }

@@ -3,6 +3,7 @@ package com.michaeladrummonds.aguafina.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -66,5 +67,14 @@ public class OrderController {
     public String deleteOrderById(@PathVariable Long id) {
         orderService.deleteOrderById(id);
         return "redirect:/orders";
+    }
+
+    @GetMapping("/orders/customer/{customer}")
+    public String getOrdersByCustomer(Model model, @Param("customer") Customer customer) {
+        Long customerId = customer.getId();
+        List<Order> ordersByCustomer = orderService.getOrderByCustomerId(customerId, customer);
+        model.addAttribute("ordersByCustomer", ordersByCustomer);
+        model.addAttribute("customer", customerId);
+        return "customer_orders";
     }
 }
