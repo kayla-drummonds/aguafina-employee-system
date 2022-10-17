@@ -160,3 +160,8 @@ h3 {
     background-color:#477EAF;
     color:#E3E3E3ff;
 }
+
+/* global modal properties */
+.uk-modal-header {
+    text-align: center;
+}

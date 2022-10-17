@@ -64,4 +64,11 @@ public class ProductController {
         productService.updateProduct(existingProduct);
         return "redirect:/products";
     }
+
+    @GetMapping("/products/{status}")
+    public String getProductsByStatus(Model model, @ModelAttribute("status") Product product) {
+        List<Product> productsByStatus = productService.getProductByStatus(product.getStatus());
+        model.addAttribute("product", productsByStatus);
+        return "status_products";
+    }
 }

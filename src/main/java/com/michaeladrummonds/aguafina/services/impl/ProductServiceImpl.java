@@ -39,4 +39,9 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findById(id).get();
     }
 
+    @Override
+    public List<Product> getProductByStatus(String status) {
+        return productRepository.getProductByStatus(status);
+    }
+
 }
