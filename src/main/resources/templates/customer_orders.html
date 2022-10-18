@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic&display=swap" rel="stylesheet">
-    <title>Orders by Customer</title>
+    <title>Customer Orders</title>
 </head>
 
 <body>
@@ -78,7 +78,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="order: ${ordersByCustomer}">
+                <tr th:each="order: ${orders}">
                     <td th:text="${order.id}">Order ID</td>
                     <td th:text="${#dates.format(order.creationDate,'MM-dd-yyyy')}">Creation Date</td>
                     <td th:text="${order.customer.id}">Customer ID</td>

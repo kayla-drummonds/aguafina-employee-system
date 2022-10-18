@@ -1,14 +1,10 @@
 package com.michaeladrummonds.aguafina.models;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -43,9 +39,6 @@ public class Customer {
 
     @Column
     private String zipCode;
-
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.MERGE)
-    private Set<Order> orders;
 
     public Customer() {
     }
@@ -134,15 +127,10 @@ public class Customer {
         this.zipCode = zipCode;
     }
 
-    public Set<Order> getOrders() {
-        return orders;
-    }
-
     @Override
     public String toString() {
         return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
                 + ", phone=" + phone + ", address=" + address + ", city=" + city + ", state=" + state + ", zipCode="
-                + zipCode + ", orders=" + orders + "]";
+                + zipCode + "]";
     }
-
 }
