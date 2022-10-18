@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.michaeladrummonds.aguafina.models.Customer;
 import com.michaeladrummonds.aguafina.models.Employee;
-import com.michaeladrummonds.aguafina.models.Order;
+import com.michaeladrummonds.aguafina.models.OrderDetails;
 import com.michaeladrummonds.aguafina.models.Product;
 import com.michaeladrummonds.aguafina.services.impl.CustomerServiceImpl;
 import com.michaeladrummonds.aguafina.services.impl.EmployeeServiceImpl;
@@ -39,14 +39,14 @@ public class OrderController {
 
     @GetMapping("/orders")
     public String listAllOrders(Model model) {
-        List<Order> orders = orderService.getAllOrders();
+        List<OrderDetails> orders = orderService.getAllOrders();
         model.addAttribute("orders", orders);
         return "orders";
     }
 
     @GetMapping("/orders/new")
     public String createOrder(Model model) {
-        Order order = new Order();
+        OrderDetails order = new OrderDetails();
         List<Product> products = productService.getAllProducts();
         List<Customer> customers = customerService.getAllCustomers();
         List<Employee> employees = employeeService.getAllEmployees();
@@ -58,7 +58,7 @@ public class OrderController {
     }
 
     @PostMapping("/orders")
-    public String saveOrder(@ModelAttribute("order") Order order) {
+    public String saveOrder(@ModelAttribute("order") OrderDetails order) {
         orderService.saveOrder(order);
         return "redirect:/orders";
     }
@@ -72,7 +72,7 @@ public class OrderController {
     @GetMapping("/orders/customer/{customer}")
     public String getOrdersByCustomer(Model model, @Param("customer") Customer customer) {
         Long customerId = customer.getId();
-        List<Order> ordersByCustomer = orderService.getOrderByCustomerId(customerId, customer);
+        List<OrderDetails> ordersByCustomer = orderService.getOrderByCustomerId(customerId, customer);
         model.addAttribute("ordersByCustomer", ordersByCustomer);
         model.addAttribute("customer", customerId);
         return "customer_orders";

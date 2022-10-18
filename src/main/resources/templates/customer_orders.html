@@ -78,7 +78,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="order: ${orders}">
+                <tr th:each="order: ${ordersByCustomer}">
                     <td th:text="${order.id}">Order ID</td>
                     <td th:text="${#dates.format(order.creationDate,'MM-dd-yyyy')}">Creation Date</td>
                     <td th:text="${order.customer.id}">Customer ID</td>

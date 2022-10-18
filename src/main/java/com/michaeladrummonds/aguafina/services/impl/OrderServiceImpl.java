@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.michaeladrummonds.aguafina.models.Customer;
-import com.michaeladrummonds.aguafina.models.Order;
+import com.michaeladrummonds.aguafina.models.OrderDetails;
 import com.michaeladrummonds.aguafina.repository.OrderRepository;
 import com.michaeladrummonds.aguafina.services.OrderService;
 
@@ -21,12 +21,12 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> getAllOrders() {
+    public List<OrderDetails> getAllOrders() {
         return orderRepository.findAll();
     }
 
     @Override
-    public Order saveOrder(Order order) {
+    public OrderDetails saveOrder(OrderDetails order) {
         return orderRepository.save(order);
     }
 
@@ -36,7 +36,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> getOrderByCustomerId(Long id, Customer customer) {
+    public List<OrderDetails> getOrderByCustomerId(Long id, Customer customer) {
         return orderRepository.getOrderByCustomerId(customer, id);
     }
 
