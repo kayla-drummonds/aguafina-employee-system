@@ -8,11 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "order_details")
+@Table(name = "orders")
 public class Order {
 
     @Id
@@ -20,8 +19,8 @@ public class Order {
     @Column
     private Long id;
 
-    @OneToOne(mappedBy = "OrderDetails")
-    @JoinColumn(name = "order_id")
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "order_details_id")
     private OrderDetails orderDetails;
 
     @ManyToOne(cascade = CascadeType.MERGE)
