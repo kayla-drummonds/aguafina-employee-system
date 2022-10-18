@@ -26,10 +26,6 @@ public class OrderDetails {
     @Column
     private Date creationDate;
 
-    @OneToOne(mappedBy = "order")
-    @JoinColumn(name = "order_id")
-    private Order order;
-
     public OrderDetails() {
     }
 
