@@ -5,15 +5,15 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.michaeladrummonds.aguafina.models.Customer;
-import com.michaeladrummonds.aguafina.models.OrderDetails;
+import com.michaeladrummonds.aguafina.models.Order;
 
 @Component
 public interface OrderService {
-    List<OrderDetails> getAllOrders();
+    List<Order> getAllOrders();
 
-    OrderDetails saveOrder(OrderDetails order);
+    Order saveOrder(Order order);
 
     void deleteOrderById(Long id);
 
-    List<OrderDetails> getOrderByCustomerId(Long id, Customer customer);
+    List<Order> getOrderByCustomerId(Long id, Customer customer);
 }
