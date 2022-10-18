@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.michaeladrummonds.aguafina.models.Customer;
 import com.michaeladrummonds.aguafina.models.Employee;
+import com.michaeladrummonds.aguafina.models.Order;
 import com.michaeladrummonds.aguafina.models.OrderDetails;
-import com.michaeladrummonds.aguafina.models.Product;
 import com.michaeladrummonds.aguafina.services.impl.CustomerServiceImpl;
 import com.michaeladrummonds.aguafina.services.impl.EmployeeServiceImpl;
+import com.michaeladrummonds.aguafina.services.impl.OrderDetailsServiceImpl;
 import com.michaeladrummonds.aguafina.services.impl.OrderServiceImpl;
-import com.michaeladrummonds.aguafina.services.impl.ProductServiceImpl;
 
 @Controller
 @RequestMapping
@@ -29,36 +29,37 @@ public class OrderController {
     private OrderServiceImpl orderService;
 
     @Autowired
-    private ProductServiceImpl productService;
-
-    @Autowired
     private CustomerServiceImpl customerService;
 
     @Autowired
     private EmployeeServiceImpl employeeService;
 
+    @Autowired
+    private OrderDetailsServiceImpl orderDetailsService;
+
     @GetMapping("/orders")
     public String listAllOrders(Model model) {
-        List<OrderDetails> orders = orderService.getAllOrders();
+        List<Order> orders = orderService.getAllOrders();
         model.addAttribute("orders", orders);
         return "orders";
     }
 
     @GetMapping("/orders/new")
-    public String createOrder(Model model) {
-        OrderDetails order = new OrderDetails();
-        List<Product> products = productService.getAllProducts();
+    public String createOrder(Model model, @Param("orderDetails") OrderDetails orderDetails) {
+        Order order = new Order();
+        Long orderDetailsId = orderDetails.getId();
+        orderDetails = orderDetailsService.getOrderDetailsById(orderDetailsId);
         List<Customer> customers = customerService.getAllCustomers();
         List<Employee> employees = employeeService.getAllEmployees();
         model.addAttribute("order", order);
-        model.addAttribute("products", products);
+        model.addAttribute("orderDetailsId", orderDetailsId);
         model.addAttribute("customers", customers);
         model.addAttribute("employees", employees);
         return "create_order";
     }
 
     @PostMapping("/orders")
-    public String saveOrder(@ModelAttribute("order") OrderDetails order) {
+    public String saveOrder(@ModelAttribute("order") Order order) {
         orderService.saveOrder(order);
         return "redirect:/orders";
     }
@@ -72,7 +73,7 @@ public class OrderController {
     @GetMapping("/orders/customer/{customer}")
     public String getOrdersByCustomer(Model model, @Param("customer") Customer customer) {
         Long customerId = customer.getId();
-        List<OrderDetails> ordersByCustomer = orderService.getOrderByCustomerId(customerId, customer);
+        List<Order> ordersByCustomer = orderService.getOrderByCustomerId(customerId, customer);
         model.addAttribute("ordersByCustomer", ordersByCustomer);
         model.addAttribute("customer", customerId);
         return "customer_orders";

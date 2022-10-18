@@ -8,5 +8,8 @@ import com.michaeladrummonds.aguafina.models.OrderDetails;
 public interface OrderDetailsService {
     OrderDetails saveOrderDetails(OrderDetails orderDetails);
 
+    OrderDetails getOrderDetailsById(Long id);
+
     void deleteOrderDetailsById(Long id);
+
 }
