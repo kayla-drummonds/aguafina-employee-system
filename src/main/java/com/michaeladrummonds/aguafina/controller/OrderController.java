@@ -45,10 +45,9 @@ public class OrderController {
     }
 
     @GetMapping("/orders/new")
-    public String createOrder(Model model, @Param("orderDetails") OrderDetails orderDetails) {
+    public String createOrder(Model model) {
         Order order = new Order();
-        Long orderDetailsId = orderDetails.getId();
-        orderDetails = orderDetailsService.getOrderDetailsById(orderDetailsId);
+        List<OrderDetails> orderDetails = orderDetailsService.getAllOrderDetails();
         List<Customer> customers = customerService.getAllCustomers();
         List<Employee> employees = employeeService.getAllEmployees();
         model.addAttribute("order", order);

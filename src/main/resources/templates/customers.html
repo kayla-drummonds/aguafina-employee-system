@@ -57,9 +57,6 @@
                     <th scope="col">Email</th>
                     <th scope="col">Phone</th>
                     <th scope="col">Address</th>
-                    <th scope="col">City</th>
-                    <th scope="col">State</th>
-                    <th scope="col">ZIP Code</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -69,10 +66,9 @@
                     <td th:text="${customer.firstName} + ' ' + ${customer.lastName}"></td>
                     <td th:text="${customer.email}"></td>
                     <td th:text="${customer.phone}"></td>
-                    <td th:text="${customer.address}"></td>
-                    <td th:text="${customer.city}"></td>
-                    <td th:text="${customer.state}"></td>
-                    <td th:text="${customer.zipCode}"></td>
+                    <td
+                        th:text="${customer.address} + ' ' + ${customer.city} + ', ' + ${customer.state} + ' ' + ${customer.zipCode}">
+                    </td>
                     <td>
                         <a th:href="@{/customers/edit/{id}(id=${customer.id})}" class="uk-button"
                             id="update-button">Update</a>

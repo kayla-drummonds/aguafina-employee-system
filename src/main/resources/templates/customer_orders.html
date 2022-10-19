@@ -80,12 +80,12 @@
             <tbody>
                 <tr th:each="order: ${ordersByCustomer}">
                     <td th:text="${order.id}">Order ID</td>
-                    <td th:text="${#dates.format(order.creationDate,'MM-dd-yyyy')}">Creation Date</td>
+                    <td th:text="${#dates.format(order.orderDetails.creationDate,'MM-dd-yyyy')}">Creation Date</td>
                     <td th:text="${order.customer.id}">Customer ID</td>
                     <td th:text="${order.employee.id}">Employee ID</td>
-                    <td th:text="${order.product.code}">Product Code</td>
-                    <td th:text="${order.quantity}">Quantity</td>
-                    <td th:text="${#numbers.formatCurrency(order.total)}">Total</td>
+                    <td th:text="${order.orderDetails.product.code}">Product Code</td>
+                    <td th:text="${order.orderDetails.quantity}">Quantity</td>
+                    <td th:text="${#numbers.formatCurrency(order.orderDetails.total)}">Total</td>
                     <td>
                         <a th:href="@{/orders/{id}(id=${order.id})}" class="uk-button" id="delete-button">Delete</a>
                     </td>

@@ -48,7 +48,7 @@
         </nav>
     </header>
     <div id="new-order-form" class="grid-container">
-        <form class="uk-form-horizontal" th:action="@{/orders/orderdetails}" th:object="${orderDetails}" method="POST"
+        <form class="uk-form-horizontal" th:action="@{/orderdetails/save}" th:object="${orderDetails}" method="POST"
             oninput="total.value=parseFloat(p.value)*parseFloat(q.value)">
             <h3>Add New Order</h3>
             <div class="uk-margin">
