@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic&display=swap" rel="stylesheet">
-    <title>New Order</title>
+    <title>Customers</title>
 </head>
 
 <body>
@@ -47,40 +47,10 @@
             </ul>
         </nav>
     </header>
-    <div id="new-order-form" class="grid-container">
-        <form class="uk-form-horizontal" th:action="@{/orders}" th:object="${order}" method="POST">
-            <h3>Add New Order</h3>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="customers">Customer ID:</label>
-                <div class="uk-form-controls">
-                    <select class="uk-select" id="customers" th:field="*{customer.id}">
-                        <option th:each="customer : ${customers}" th:value="${customer.id}" th:text="${customer.id}">
-                            Customer ID
-                        </option>
-                    </select>
-                </div>
-            </div>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="employees">Employee ID:</label>
-                <div class="uk-form-controls">
-                    <select class="uk-select" id="employees" th:field="*{employee.id}">
-                        <option th:each="employee : ${employees}" th:value="${employee.id}" th:text="${employee.id}">
-                            Employee ID
-                        </option>
-                    </select>
-                </div>
-            </div>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="orderDetails">Order Details ID:</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" type="number" th:field="*{orderDetails}" id="orderDetails">
-                </div>
-            </div>
-            <button class="uk-button" type="submit">Submit</button>
-        </form>
+    <div class="grid-container">
+        <p>The new order details id is <strong th:text="${orderDetails.id}"></strong>. Continue to <a
+                th:href="@{/orders/new}">make a new order.</a></p>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit-icons.min.js"></script>
 </body>
 
 </html>

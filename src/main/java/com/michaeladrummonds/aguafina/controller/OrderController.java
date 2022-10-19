@@ -52,7 +52,7 @@ public class OrderController {
         List<Customer> customers = customerService.getAllCustomers();
         List<Employee> employees = employeeService.getAllEmployees();
         model.addAttribute("order", order);
-        model.addAttribute("orderDetailsId", orderDetailsId);
+        model.addAttribute("orderDetails", orderDetails);
         model.addAttribute("customers", customers);
         model.addAttribute("employees", employees);
         return "create_order";

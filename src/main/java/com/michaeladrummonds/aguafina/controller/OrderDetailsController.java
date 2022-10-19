@@ -25,7 +25,9 @@ public class OrderDetailsController {
     @Autowired
     private ProductServiceImpl productService;
 
-    @GetMapping("/orders/orderdetails/new")
+    // displays form to create a new OrderDetails object
+    // and populates the products list
+    @GetMapping("/orderdetails/new")
     public String createOrderDetails(Model model) {
         OrderDetails orderDetails = new OrderDetails();
         List<Product> products = productService.getAllProducts();
@@ -34,9 +36,13 @@ public class OrderDetailsController {
         return "create_order_details";
     }
 
-    @PostMapping("/orders/orderdetails")
-    public String saveOrderDetails(@ModelAttribute("orderDetails") OrderDetails orderDetails) {
+    // saves the new OrderDetails object, shows the
+    // OrderDetails id to create a new Order object,
+    // and gives the option to create another OrderDetails object
+    @PostMapping("/orderdetails/save")
+    public String saveOrderDetails(@ModelAttribute("orderDetails") OrderDetails orderDetails, Model model) {
         orderDetailsService.saveOrderDetails(orderDetails);
-        return "redirect:/orders/new";
+        model.addAttribute("orderDetails", orderDetails);
+        return "save_order_details";
     }
 }

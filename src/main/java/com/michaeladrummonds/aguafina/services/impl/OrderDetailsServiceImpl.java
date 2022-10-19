@@ -1,5 +1,7 @@
 package com.michaeladrummonds.aguafina.services.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,6 +32,11 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
     @Override
     public OrderDetails getOrderDetailsById(Long id) {
         return orderDetailsRepository.findById(id).get();
+    }
+
+    @Override
+    public List<OrderDetails> getAllOrderDetails() {
+        return orderDetailsRepository.findAll();
     }
 
 }
