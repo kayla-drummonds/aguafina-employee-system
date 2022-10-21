@@ -19,6 +19,7 @@ public class EmployeeController {
     @Autowired
     private EmployeeServiceImpl employeeService;
 
+    // displays all employees
     @GetMapping("/employees")
     public String listAllEmployees(Model model) {
         List<Employee> employees = employeeService.getAllEmployees();
@@ -26,6 +27,7 @@ public class EmployeeController {
         return "employees";
     }
 
+    // displays the form to construct a new employee object
     @GetMapping("/employees/new")
     public String createNewEmployee(Model model) {
         Employee employee = new Employee();
@@ -33,6 +35,7 @@ public class EmployeeController {
         return "create_employee";
     }
 
+    // saves the new employee object and redirects to the employees page
     @PostMapping("/employees")
     public String saveEmployee(@ModelAttribute("employee") Employee employee) {
         employeeService.saveEmployee(employee);

@@ -25,6 +25,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+    // displays all customers
     @GetMapping("/customers")
     public String listCustomers(Model model) {
         List<Customer> customers = customerService.getAllCustomers();
@@ -32,6 +33,7 @@ public class CustomerController {
         return "customers";
     }
 
+    // displays the form to construct a new customer object
     @GetMapping("/customers/new")
     public String createNewCustomer(Model model) {
         Customer customer = new Customer();
@@ -39,18 +41,22 @@ public class CustomerController {
         return "create_customer";
     }
 
+    // saves the new customer object and redirects to the customers page
     @PostMapping("/customers")
     public String saveCustomer(@ModelAttribute("customer") Customer customer) {
         customerService.saveCustomer(customer);
         return "redirect:/customers";
     }
 
+    // displays the form to update an existing customer object with a given id
     @GetMapping("/customers/edit/{id}")
     public String editCustomer(@PathVariable Long id, Model model) {
         model.addAttribute("customer", customerService.getCustomerById(id));
         return "edit_customer";
     }
 
+    // edits an existing customer object, saves the updated object, and redirects to
+    // the customers page
     @PostMapping("/customers/{id}")
     public String updateCustomer(@PathVariable Long id, @ModelAttribute("customer") Customer customer, Model model) {
         Customer existingCustomer = customerService.getCustomerById(id);
