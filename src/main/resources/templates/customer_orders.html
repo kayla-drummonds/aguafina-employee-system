@@ -64,34 +64,48 @@
     </div>
     <a class="uk-button" th:href="@{/orders}">Complete List of Orders</a>
     <div class="grid-container" id="orders">
-        <table class="uk-table">
-            <thead>
-                <tr>
-                    <th scope="col">Order ID</th>
-                    <th scope="col">Creation date</th>
-                    <th scope="col">Customer ID</th>
-                    <th scope="col">Employee ID</th>
-                    <th scope="col">Product Code</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Total</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="order: ${ordersByCustomer}">
-                    <td th:text="${order.id}">Order ID</td>
-                    <td th:text="${#dates.format(order.orderDetails.creationDate,'MM-dd-yyyy')}">Creation Date</td>
-                    <td th:text="${order.customer.id}">Customer ID</td>
-                    <td th:text="${order.employee.id}">Employee ID</td>
-                    <td th:text="${order.orderDetails.product.code}">Product Code</td>
-                    <td th:text="${order.orderDetails.quantity}">Quantity</td>
-                    <td th:text="${#numbers.formatCurrency(order.orderDetails.total)}">Total</td>
-                    <td>
-                        <a th:href="@{/orders/{id}(id=${order.id})}" class="uk-button" id="delete-button">Delete</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="grid-item">
+            <article class="uk-article" th:object="${customer}">
+                <h3 class="uk-article-title" th:text="${customer.firstName} + ' ' + ${customer.lastName}">
+                </h3>
+                <ul class="uk-list uk-list-divider">
+                    <li th:text="'Customer ID: ' + ${customer.id}">Customer ID</li>
+                    <li th:text="${customer.phone}">Phone Number</li>
+                    <li th:text="${customer.email}">Email</li>
+                    <li
+                        th:text="${customer.address} + ' ' + ${customer.city} + ', ' + ${customer.state} + ' ' + ${customer.zipCode}">
+                        Address</li>
+                </ul>
+                <table class="uk-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Order ID</th>
+                            <th scope="col">Creation date</th>
+                            <th scope="col">Employee ID</th>
+                            <th scope="col">Product Code</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="order: ${ordersByCustomer}">
+                            <td th:text="${order.id}">Order ID</td>
+                            <td th:text="${#dates.format(order.orderDetails.creationDate,'MM-dd-yyyy')}">Creation
+                                Date</td>
+                            <td th:text="${order.employee.id}">Employee ID</td>
+                            <td th:text="${order.orderDetails.product.code}">Product Code</td>
+                            <td th:text="${order.orderDetails.quantity}">Quantity</td>
+                            <td th:text="${#numbers.formatCurrency(order.orderDetails.total)}">Total</td>
+                            <td>
+                                <a th:href="@{/orders/{id}(id=${order.id})}" class="uk-button"
+                                    id="delete-button">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit-icons.min.js"></script>

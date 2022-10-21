@@ -27,8 +27,14 @@ public class CustomerController {
 
     // displays all customers
     @GetMapping("/customers")
-    public String listCustomers(Model model) {
+    public String listCustomers(@ModelAttribute("customer") Customer customer, Model model) {
+        String email = customer.getEmail();
+        customerService.getCustomerByEmail(email);
+        String phone = customer.getPhone();
+        customerService.getCustomerByPhone(phone);
         List<Customer> customers = customerService.getAllCustomers();
+        model.addAttribute("email", email);
+        model.addAttribute("phone", phone);
         model.addAttribute("customers", customers);
         return "customers";
     }

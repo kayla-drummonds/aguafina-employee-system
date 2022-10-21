@@ -15,4 +15,8 @@ public interface CustomerService {
     Customer updateCustomer(Customer customer);
 
     Customer getCustomerById(Long id);
+
+    List<Customer> getCustomerByEmail(String email);
+
+    List<Customer> getCustomerByPhone(String phone);
 }

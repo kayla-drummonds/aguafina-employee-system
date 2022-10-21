@@ -39,4 +39,14 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findById(id).get();
     }
 
+    @Override
+    public List<Customer> getCustomerByEmail(String email) {
+        return customerRepository.findByEmail(email);
+    }
+
+    @Override
+    public List<Customer> getCustomerByPhone(String phone) {
+        return customerRepository.findByPhone(phone);
+    }
+
 }

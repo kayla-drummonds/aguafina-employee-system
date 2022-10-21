@@ -48,6 +48,40 @@
         </nav>
     </header>
     <a th:href="@{/customers/new}" class="uk-button" id="create-button">Create a new customer</a>
+    <button class="uk-button" type="button" uk-toggle="target: #search-by-email">Find by Email</button>
+    <button class="uk-button" type="button" uk-toggle="target: #search-by-phone">Find by Phone</button>
+    <div id="search-by-email" uk-modal>
+        <div class="uk-modal-dialog">
+            <button class="uk-modal-close-default uk-margin-auto-vertical" type="button" uk-close
+                title="close"></button>
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title">Enter Email Address</h2>
+            </div>
+            <div class="uk-modal-body">
+                <form class="uk-search uk-search-large" th:object="${customer}">
+                    <span uk-search-icon></span>
+                    <input class="uk-search-input uk-text-center" type="search" th:value="${email}" placeholder="Search"
+                        autofocus>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="search-by-phone" uk-modal>
+        <div class="uk-modal-dialog">
+            <button class="uk-modal-close-default uk-margin-auto-vertical" type="button" uk-close
+                title="close"></button>
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title">Enter Phone Number</h2>
+            </div>
+            <div class="uk-modal-body">
+                <form class="uk-search uk-search-large" th:object="${customer}">
+                    <span uk-search-icon></span>
+                    <input class="uk-search-input uk-text-center" th:value="${phone}" type="search" placeholder="Search"
+                        autofocus>
+                </form>
+            </div>
+        </div>
+    </div>
     <div id="customers" class="grid-container">
         <table class="uk-table">
             <thead>

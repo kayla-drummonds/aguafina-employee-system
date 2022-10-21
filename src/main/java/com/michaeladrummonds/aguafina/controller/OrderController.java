@@ -74,7 +74,7 @@ public class OrderController {
         Long customerId = customer.getId();
         List<Order> ordersByCustomer = orderService.getOrderByCustomerId(customerId, customer);
         model.addAttribute("ordersByCustomer", ordersByCustomer);
-        model.addAttribute("customer", customerId);
+        model.addAttribute("customer", customer);
         return "customer_orders";
     }
 }
