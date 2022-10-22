@@ -16,7 +16,4 @@ public interface CustomerService {
 
     Customer getCustomerById(Long id);
 
-    List<Customer> getCustomerByEmail(String email);
-
-    List<Customer> getCustomerByPhone(String phone);
 }
