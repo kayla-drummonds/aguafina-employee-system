@@ -27,7 +27,7 @@ public class OrderDetails {
     @Column
     private Date creationDate;
 
-    @OneToMany(targetEntity = Order.class, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Order.class, cascade = CascadeType.MERGE)
     private List<Order> orders;
 
     public OrderDetails() {

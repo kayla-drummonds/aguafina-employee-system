@@ -1,10 +1,14 @@
 package com.michaeladrummonds.aguafina.models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -39,6 +43,9 @@ public class Customer {
 
     @Column
     private String zipCode;
+
+    @OneToMany(targetEntity = Order.class, cascade = CascadeType.MERGE)
+    private List<Order> orders;
 
     public Customer() {
     }
@@ -125,6 +132,10 @@ public class Customer {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
     }
 
     @Override

@@ -38,7 +38,7 @@ public class Product {
     @NotNull
     private String image;
 
-    @OneToMany(targetEntity = OrderDetails.class, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = OrderDetails.class, cascade = CascadeType.MERGE)
     private List<OrderDetails> orderDetails;
 
     public Product() {

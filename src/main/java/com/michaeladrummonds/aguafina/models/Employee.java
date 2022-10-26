@@ -1,5 +1,7 @@
 package com.michaeladrummonds.aguafina.models;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -30,6 +32,9 @@ public class Employee {
 
     @Column
     private String zipCode;
+
+    @OneToMany(targetEntity = Order.class, cascade = CascadeType.MERGE)
+    private List<Order> orders;
 
     public Employee() {
     }
@@ -107,6 +112,10 @@ public class Employee {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
     }
 
 }
