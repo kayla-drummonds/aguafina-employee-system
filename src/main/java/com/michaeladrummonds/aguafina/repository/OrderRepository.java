@@ -7,12 +7,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.michaeladrummonds.aguafina.models.Customer;
+import com.michaeladrummonds.aguafina.models.Employee;
 import com.michaeladrummonds.aguafina.models.Order;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
     @Query("select o from Order o where o.customer = ?1")
-    List<Order> getOrderByCustomerId(Customer customer, Long id);
+    List<Order> findByCustomerId(Customer customer, Long id);
+
+    @Query("select o from Order o where o.employee = ?1")
+    List<Order> findByEmployeeId(Employee employee, Long id);
 
 }

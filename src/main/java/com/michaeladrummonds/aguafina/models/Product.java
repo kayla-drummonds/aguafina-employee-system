@@ -1,5 +1,7 @@
 package com.michaeladrummonds.aguafina.models;
 
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -35,6 +37,9 @@ public class Product {
     @Column
     @NotNull
     private String image;
+
+    @OneToMany(targetEntity = OrderDetails.class, cascade = CascadeType.ALL)
+    private List<OrderDetails> orderDetails;
 
     public Product() {
     }
@@ -102,6 +107,10 @@ public class Product {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public List<OrderDetails> getOrderDetails() {
+        return orderDetails;
     }
 
 }

@@ -1,6 +1,7 @@
 package com.michaeladrummonds.aguafina.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -25,6 +26,9 @@ public class OrderDetails {
 
     @Column
     private Date creationDate;
+
+    @OneToMany(targetEntity = Order.class, cascade = CascadeType.ALL)
+    private List<Order> orders;
 
     public OrderDetails() {
     }
@@ -74,6 +78,10 @@ public class OrderDetails {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
     }
 
     @Override

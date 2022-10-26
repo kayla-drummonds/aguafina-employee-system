@@ -15,5 +15,4 @@ public interface CustomerService {
     Customer updateCustomer(Customer customer);
 
     Customer getCustomerById(Long id);
-
 }
