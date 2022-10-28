@@ -11,12 +11,12 @@ import com.michaeladrummonds.aguafina.models.Employee;
 import com.michaeladrummonds.aguafina.models.Order;
 
 @Repository
-public interface OrderRepository extends JpaRepository<Order, Long> {
+public interface OrderRepository extends JpaRepository<Order, Integer> {
 
     @Query("select o from Order o where o.customer = ?1")
-    List<Order> findByCustomerId(Customer customer, Long id);
+    List<Order> findByCustomerId(Customer customer, Integer id);
 
     @Query("select o from Order o where o.employee = ?1")
-    List<Order> findByEmployeeId(Employee employee, Long id);
+    List<Order> findByEmployeeId(Employee employee, Integer id);
 
 }
