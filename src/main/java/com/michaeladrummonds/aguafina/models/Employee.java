@@ -33,7 +33,7 @@ public class Employee {
     @Column
     private String zipCode;
 
-    @OneToMany(targetEntity = Order.class, cascade = CascadeType.MERGE)
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "employee")
     private List<Order> orders;
 
     public Employee() {

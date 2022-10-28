@@ -1,18 +1,25 @@
 package com.michaeladrummonds.aguafina.models;
 
-import java.util.List;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "products")
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Long id;
+    private Integer id;
 
     @Column
     @NotNull
@@ -37,80 +44,5 @@ public class Product {
     @Column
     @NotNull
     private String image;
-
-    @OneToMany(targetEntity = OrderDetails.class, cascade = CascadeType.MERGE)
-    private List<OrderDetails> orderDetails;
-
-    public Product() {
-    }
-
-    public Product(String code, String variety, int size, double price, String status, String image) {
-        this.code = code;
-        this.variety = variety;
-        this.size = size;
-        this.price = price;
-        this.status = status;
-        this.image = image;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getVariety() {
-        return variety;
-    }
-
-    public void setVariety(String variety) {
-        this.variety = variety;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public List<OrderDetails> getOrderDetails() {
-        return orderDetails;
-    }
 
 }

@@ -44,7 +44,7 @@ public class Customer {
     @Column
     private String zipCode;
 
-    @OneToMany(targetEntity = Order.class, cascade = CascadeType.MERGE)
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "customer")
     private List<Order> orders;
 
     public Customer() {
