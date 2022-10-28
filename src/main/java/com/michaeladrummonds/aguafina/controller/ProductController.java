@@ -46,13 +46,13 @@ public class ProductController {
     }
 
     @GetMapping("/products/edit/{id}")
-    public String editProduct(@PathVariable Long id, Model model) {
+    public String editProduct(@PathVariable Integer id, Model model) {
         model.addAttribute("product", productService.getProductById(id));
         return "edit_product";
     }
 
     @PostMapping("/products/{id}")
-    public String updateProduct(@PathVariable Long id, @ModelAttribute("product") Product product, Model model) {
+    public String updateProduct(@PathVariable Integer id, @ModelAttribute("product") Product product, Model model) {
         Product existingProduct = productService.getProductById(id);
         existingProduct.setId(product.getId());
         existingProduct.setCode(product.getCode());

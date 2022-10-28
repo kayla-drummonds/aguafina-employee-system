@@ -64,14 +64,14 @@ public class OrderController {
     }
 
     @GetMapping("/orders/{id}")
-    public String deleteOrderById(@PathVariable Long id) {
+    public String deleteOrderById(@PathVariable Integer id) {
         orderService.deleteOrderById(id);
         return "redirect:/orders";
     }
 
     @GetMapping("/orders/customer/{customer}")
     public String getOrdersByCustomer(Model model, @Param("customer") Customer customer) {
-        Long customerId = customer.getId();
+        Integer customerId = customer.getId();
         List<Order> ordersByCustomer = orderService.getOrderByCustomerId(customerId, customer);
         model.addAttribute("ordersByCustomer", ordersByCustomer);
         model.addAttribute("customer", customer);

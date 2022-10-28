@@ -50,7 +50,7 @@ public class CustomerController {
 
     // displays the form to update an existing customer object with a given id
     @GetMapping("/customers/edit/{id}")
-    public String editCustomer(@PathVariable Long id, Model model) {
+    public String editCustomer(@PathVariable Integer id, Model model) {
         model.addAttribute("customer", customerService.getCustomerById(id));
         return "edit_customer";
     }
@@ -58,7 +58,7 @@ public class CustomerController {
     // edits an existing customer object, saves the updated object, and redirects to
     // the customers page
     @PostMapping("/customers/{id}")
-    public String updateCustomer(@PathVariable Long id, @ModelAttribute("customer") Customer customer, Model model) {
+    public String updateCustomer(@PathVariable Integer id, @ModelAttribute("customer") Customer customer, Model model) {
         Customer existingCustomer = customerService.getCustomerById(id);
         existingCustomer.setId(customer.getId());
         existingCustomer.setFirstName(customer.getFirstName());

@@ -20,7 +20,7 @@ public class RestOrderController {
     private OrderServiceImpl orderService;
 
     @GetMapping("/employee/{employee}")
-    public List<Order> getOrderByEmployeeId(@PathVariable("employee") Employee employee, Long id) {
+    public List<Order> getOrderByEmployeeId(@PathVariable("employee") Employee employee, Integer id) {
         return orderService.getOrderByEmployeeId(id, employee);
     }
 
