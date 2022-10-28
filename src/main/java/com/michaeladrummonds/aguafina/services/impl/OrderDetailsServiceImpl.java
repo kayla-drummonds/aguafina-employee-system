@@ -25,12 +25,12 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
     }
 
     @Override
-    public void deleteOrderDetailsById(Long id) {
+    public void deleteOrderDetailsById(Integer id) {
         orderDetailsRepository.deleteById(id);
     }
 
     @Override
-    public OrderDetails getOrderDetailsById(Long id) {
+    public OrderDetails getOrderDetailsById(Integer id) {
         return orderDetailsRepository.findById(id).get();
     }
 

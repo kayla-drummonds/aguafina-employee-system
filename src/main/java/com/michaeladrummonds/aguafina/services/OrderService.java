@@ -14,9 +14,9 @@ public interface OrderService {
 
     Order saveOrder(Order order);
 
-    void deleteOrderById(Long id);
+    void deleteOrderById(Integer id);
 
-    List<Order> getOrderByCustomerId(Long id, Customer customer);
+    List<Order> getOrderByCustomerId(Integer id, Customer customer);
 
-    List<Order> getOrderByEmployeeId(Long id, Employee employee);
+    List<Order> getOrderByEmployeeId(Integer id, Employee employee);
 }

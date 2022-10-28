@@ -14,7 +14,7 @@ public interface ProductService {
 
     Product updateProduct(Product product);
 
-    Product getProductById(Long id);
+    Product getProductById(Integer id);
 
     List<Product> getProductByStatus(String status);
 }

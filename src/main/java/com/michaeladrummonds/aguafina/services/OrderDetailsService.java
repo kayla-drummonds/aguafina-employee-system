@@ -13,8 +13,8 @@ public interface OrderDetailsService {
 
     OrderDetails saveOrderDetails(OrderDetails orderDetails);
 
-    OrderDetails getOrderDetailsById(Long id);
+    OrderDetails getOrderDetailsById(Integer id);
 
-    void deleteOrderDetailsById(Long id);
+    void deleteOrderDetailsById(Integer id);
 
 }

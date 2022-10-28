@@ -32,17 +32,17 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void deleteOrderById(Long id) {
+    public void deleteOrderById(Integer id) {
         orderRepository.deleteById(id);
     }
 
     @Override
-    public List<Order> getOrderByCustomerId(Long id, Customer customer) {
+    public List<Order> getOrderByCustomerId(Integer id, Customer customer) {
         return orderRepository.findByCustomerId(customer, id);
     }
 
     @Override
-    public List<Order> getOrderByEmployeeId(Long id, Employee employee) {
+    public List<Order> getOrderByEmployeeId(Integer id, Employee employee) {
         return orderRepository.findByEmployeeId(employee, id);
     }
 
