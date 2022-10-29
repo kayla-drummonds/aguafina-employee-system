@@ -48,50 +48,54 @@
         </nav>
     </header>
     <div id="new-employee-form" class="grid-container">
-        <form class="uk-form-horizontal" th:action="@{/employees}" th:object="${employee}" method="POST">
+        <form name="newEmployeeForm" class="uk-form-horizontal" th:action="@{/employees}" th:object="${employee}"
+            method="POST" onsubmit="return(validateEmployee());">
             <h3>Add New Employee</h3>
             <div class="uk-margin">
                 <label class="uk-form-label" for="firstName">First Name:</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" type="text" th:field="*{firstName}" id="firstName"
+                    <input name="firstName" class="uk-input" type="text" th:field="*{firstName}" id="firstName"
                         placeholder="Enter First Name">
                 </div>
             </div>
             <div class="uk-margin">
                 <label class="uk-form-label" for="lastName">Last Name:</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" type="text" th:field="*{lastName}" id="lastName"
+                    <input name="lastName" class="uk-input" type="text" th:field="*{lastName}" id="lastName"
                         placeholder="Enter Last Name">
                 </div>
             </div>
             <div class="uk-margin">
                 <label class="uk-form-label" for="email">Email</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" type="email" th:field="*{email}" id="email" placeholder="Enter Email">
+                    <input name="email" class="uk-input" type="email" th:field="*{email}" id="email"
+                        placeholder="Enter Email">
                 </div>
             </div>
             <div class="uk-margin">
                 <label class="uk-form-label" for="address">Address</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" type="text" th:field="*{address}" id="address" placeholder="Address">
+                    <input name="address" class="uk-input" type="text" th:field="*{address}" id="address"
+                        placeholder="Address">
                 </div>
             </div>
             <div class="uk-margin">
                 <label class="uk-form-label" for="city">City</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" type="text" th:field="*{city}" id="city" placeholder="City">
+                    <input name="city" class="uk-input" type="text" th:field="*{city}" id="city" placeholder="City">
                 </div>
             </div>
             <div class="uk-margin">
                 <label class="uk-form-label" for="state">State</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" type="text" th:field="*{state}" id="state" placeholder="State">
+                    <input name="state" class="uk-input" type="text" th:field="*{state}" id="state" placeholder="State">
                 </div>
             </div>
             <div class="uk-margin">
                 <label class="uk-form-label" for="zipCode">ZIP Code</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" type="text" th:field="*{zipCode}" id="zipCode" placeholder="ZIP Code">
+                    <input name="zip" class="uk-input" type="text" th:field="*{zipCode}" id="zipCode"
+                        placeholder="ZIP Code">
                 </div>
             </div>
             <button class="uk-button" type="submit">Submit</button>
@@ -99,6 +103,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit-icons.min.js"></script>
+    <script th:src="@{/js/script.js}"></script>
 </body>
 
 </html>
