@@ -42,7 +42,7 @@ public class Employee {
     @Column
     private String zipCode;
 
-    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "employee")
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "employee", fetch = FetchType.LAZY)
     private List<Order> orders;
 
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.michaeladrummonds.aguafina.models.Employee;
+import com.michaeladrummonds.aguafina.models.Order;
 import com.michaeladrummonds.aguafina.services.impl.EmployeeServiceImpl;
 
 @Controller
@@ -21,8 +22,10 @@ public class EmployeeController {
 
     // displays all employees
     @GetMapping("/employees")
-    public String listAllEmployees(Model model) {
+    public String listAllEmployees(Model model, @ModelAttribute("employee") Employee employee) {
         List<Employee> employees = employeeService.getAllEmployees();
+        List<Order> ordersByEmployee = employee.getOrders();
+        model.addAttribute("employee", ordersByEmployee);
         model.addAttribute("employees", employees);
         return "employees";
     }

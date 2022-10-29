@@ -56,6 +56,7 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -64,10 +65,50 @@
                     <td th:text="${employee.firstName}"></td>
                     <td th:text="${employee.lastName}"></td>
                     <td th:text="${employee.email}"></td>
+                    <td>
+                        <button class="uk-button uk-button-default" type="button"
+                            uk-toggle="target: #offcanvas-push-1">Additional information</button>
+                        <button class="uk-button uk-button-default" type="button"
+                            uk-toggle="target: #offcanvas-push-2">Orders</button>
+                        <div id="offcanvas-push-1" uk-offcanvas="mode: push; overlay: true">
+                            <div class="uk-offcanvas-bar" th:object="${employee}">
+                                <button title="close" class="uk-offcanvas-close" type="button" uk-close></button>
+                                <h3>All Employee Information</h3>
+                                <ul>
+                                    <li th:text="'Employee ID: ' + ${employee.id}">Employee ID</li>
+                                    <li th:text="'First name: ' + ${employee.firstName}">First Name</li>
+                                    <li th:text="'Last name: ' + ${employee.lastName}">Last Name</li>
+                                    <li th:text="'Email: ' + ${employee.email}">Email</li>
+                                    <li
+                                        th:text="'Address: ' + ${employee.address} + ' ' + ${employee.city} + ', ' + ${employee.state} + ' ' + ${employee.zipCode}">
+                                        Address</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="offcanvas-push-2" uk-offcanvas="mode: push; overlay: true">
+                            <div class="uk-offcanvas-bar">
+                                <button title="close" class="uk-offcanvas-close" type="button" uk-close></button>
+                                <h3>Orders</h3>
+                                <div th:each="order : ${orders}">
+                                    <ul>
+                                        <li th:text="'Customer ID: ' + ${order.customer.id}">Customer ID</li>
+                                        <li th:text="'Order ID: ' + ${order.id}">Order ID</li>
+                                        <li th:text="'Product Code: ' + ${order.orderDetails.product.code}">
+                                            Product Code</li>
+                                        <li th:text="'Quantity: ' + ${order.orderDetails.quantity}">Quantity
+                                        </li>
+                                        <li th:text="'Total: ' + ${#numbers.formatCurrency(order.orderDetails.total)}">
+                                            Total</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit-icons.min.js"></script>
 </body>

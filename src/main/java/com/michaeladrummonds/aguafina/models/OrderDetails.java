@@ -36,7 +36,7 @@ public class OrderDetails {
     @Column
     private Date creationDate;
 
-    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "orderDetails")
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "orderDetails", fetch = FetchType.LAZY)
     private List<Order> orders;
 
 }
