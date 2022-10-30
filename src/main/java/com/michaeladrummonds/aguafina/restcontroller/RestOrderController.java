@@ -13,15 +13,14 @@ import com.michaeladrummonds.aguafina.models.Order;
 import com.michaeladrummonds.aguafina.services.impl.OrderServiceImpl;
 
 @RestController
-@RequestMapping("/orders")
+@RequestMapping
 public class RestOrderController {
 
     @Autowired
     private OrderServiceImpl orderService;
 
-    @GetMapping("/employee/{employee}")
+    @GetMapping("/employees/{employee}/orders")
     public List<Order> getOrderByEmployeeId(@PathVariable("employee") Employee employee, Integer id) {
         return orderService.getOrderByEmployeeId(id, employee);
     }
-
 }
