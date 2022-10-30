@@ -63,7 +63,8 @@
         </div>
     </div>
     <a class="uk-button" th:href="@{/orders}">Complete List of Orders</a>
-    <div class="grid-container" id="orders">
+    <a class="uk-button" th:href="@{/customers}">Complete List of Customers</a>
+    <div class="grid-container" id="customer-orders">
         <div class="grid-item">
             <article class="uk-article" th:object="${customer}">
                 <h3 class="uk-article-title" th:text="${customer.firstName} + ' ' + ${customer.lastName}">
