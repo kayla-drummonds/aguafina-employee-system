@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.michaeladrummonds.aguafina.models.Customer;
-import com.michaeladrummonds.aguafina.models.Employee;
 import com.michaeladrummonds.aguafina.models.Order;
 import com.michaeladrummonds.aguafina.repository.OrderRepository;
 import com.michaeladrummonds.aguafina.services.OrderService;
@@ -39,11 +38,6 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<Order> getOrderByCustomerId(Integer id, Customer customer) {
         return orderRepository.findByCustomerId(customer, id);
-    }
-
-    @Override
-    public List<Order> getOrderByEmployeeId(Integer id, Employee employee) {
-        return orderRepository.findByEmployeeId(employee, id);
     }
 
     @Override
