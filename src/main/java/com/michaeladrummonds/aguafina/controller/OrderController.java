@@ -73,8 +73,10 @@ public class OrderController {
     public String getOrdersByCustomer(Model model, @Param("customer") Customer customer) {
         Integer customerId = customer.getId();
         List<Order> ordersByCustomer = orderService.getOrderByCustomerId(customerId, customer);
+        Double total = orderService.getTotalByCustomerId(customerId, customer);
         model.addAttribute("ordersByCustomer", ordersByCustomer);
         model.addAttribute("customer", customer);
+        model.addAttribute("total", total);
         return "customer_orders";
     }
 }

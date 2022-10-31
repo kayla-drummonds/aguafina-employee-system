@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.michaeladrummonds.aguafina.models.Customer;
-import com.michaeladrummonds.aguafina.models.Order;
 import com.michaeladrummonds.aguafina.repository.CustomerRepository;
 import com.michaeladrummonds.aguafina.services.CustomerService;
 
@@ -40,8 +39,4 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findById(id).get();
     }
 
-    @Override
-    public List<Order> getOrdersByCustomerId(Customer customer, Integer id) {
-        return customerRepository.findOrdersByCustomer(customer, id);
-    }
 }

@@ -76,6 +76,8 @@
                     <li
                         th:text="${customer.address} + ' ' + ${customer.city} + ', ' + ${customer.state} + ' ' + ${customer.zipCode}">
                         Address</li>
+                    <li th:object="${total}" th:text="'Grand Total: ' + ${#numbers.formatCurrency(total.doubleValue)}">
+                        Grand Total</li>
                 </ul>
                 <table class="uk-table">
                     <thead>

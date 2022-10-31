@@ -19,4 +19,6 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
     @Query("select o from Order o where o.employee = ?1")
     List<Order> findByEmployeeId(Employee employee, Integer id);
 
+    @Query("select sum(od.total) from Order o join OrderDetails od on od.id = o.orderDetails where o.customer = ?1")
+    Double sumTotalByCustomer(Customer customer, Integer id);
 }

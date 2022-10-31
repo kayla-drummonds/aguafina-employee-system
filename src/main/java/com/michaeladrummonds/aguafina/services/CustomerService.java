@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.michaeladrummonds.aguafina.models.Customer;
-import com.michaeladrummonds.aguafina.models.Order;
 
 @Component
 public interface CustomerService {
@@ -17,5 +16,4 @@ public interface CustomerService {
 
     Customer getCustomerById(Integer id);
 
-    List<Order> getOrdersByCustomerId(Customer customer, Integer id);
 }

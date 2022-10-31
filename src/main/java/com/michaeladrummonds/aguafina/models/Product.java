@@ -1,7 +1,5 @@
 package com.michaeladrummonds.aguafina.models;
 
-import java.util.List;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -46,7 +44,4 @@ public class Product {
     @Column
     @NotNull
     private String image;
-
-    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "product", fetch = FetchType.LAZY)
-    private List<OrderDetails> orderDetails;
 }

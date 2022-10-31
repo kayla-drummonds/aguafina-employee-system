@@ -46,4 +46,9 @@ public class OrderServiceImpl implements OrderService {
         return orderRepository.findByEmployeeId(employee, id);
     }
 
+    @Override
+    public Double getTotalByCustomerId(Integer id, Customer customer) {
+        return orderRepository.sumTotalByCustomer(customer, id);
+    }
+
 }

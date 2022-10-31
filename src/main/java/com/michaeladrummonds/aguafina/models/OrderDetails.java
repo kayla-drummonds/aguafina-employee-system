@@ -1,7 +1,6 @@
 package com.michaeladrummonds.aguafina.models;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.*;
 
@@ -35,8 +34,5 @@ public class OrderDetails {
 
     @Column
     private Date creationDate;
-
-    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "orderDetails", fetch = FetchType.LAZY)
-    private List<Order> orders;
 
 }

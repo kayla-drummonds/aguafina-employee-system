@@ -19,4 +19,6 @@ public interface OrderService {
     List<Order> getOrderByCustomerId(Integer id, Customer customer);
 
     List<Order> getOrderByEmployeeId(Integer id, Employee employee);
+
+    Double getTotalByCustomerId(Integer id, Customer customer);
 }

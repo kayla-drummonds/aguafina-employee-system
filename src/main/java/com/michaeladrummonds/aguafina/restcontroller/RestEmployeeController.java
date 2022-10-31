@@ -14,7 +14,7 @@ public class RestEmployeeController {
     private EmployeeRepository employeeRepository;
 
     @GetMapping("/employees/{id}")
-    public Optional<Employee> getEmployeeById(@PathVariable("id") Integer id) {
-        return employeeRepository.findById(id);
+    public Employee getEmployeeById(@PathVariable("id") Integer id, Employee employee) {
+        return employeeRepository.findById(employee, id);
     }
 }
