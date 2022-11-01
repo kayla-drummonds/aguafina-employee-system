@@ -89,7 +89,7 @@
                             <div class="uk-offcanvas-bar">
                                 <button title="close" class="uk-offcanvas-close" type="button" uk-close></button>
                                 <h3>Orders</h3>
-                                <div th:each="order : ${orders}">
+                                <div th:each="order : ${ordersByEmployee}">
                                     <ul>
                                         <li th:text="'Customer ID: ' + ${order.customer.id}">Customer ID</li>
                                         <li th:text="'Order ID: ' + ${order.id}">Order ID</li>
