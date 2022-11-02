@@ -21,18 +21,27 @@ public class ProductServiceImplIntegerationTest {
     @Test
     @Order(1)
     public void testGetProductByStatusActive() {
-        Product productA = new Product(18, "MWPOM32", "Pomegranate", 32, 4.0, "ACTIVE", "pomegranate.png");
+        Product productA = new Product(5, "MWPOM20", "Pomegranate", 20, 2.0, "ACTIVE", "pomegranate.png");
         productRepository.save(productA);
         List<Product> activeProducts = productRepository.getProductByStatus("ACTIVE");
-        Assertions.assertTrue(activeProducts.contains(productA));
+        Assertions.assertEquals(1, activeProducts.size());
+        for (Product a : activeProducts) {
+            System.out.println(a.getId() + " | " + a.getCode() + " | " + a.getVariety() + " | " + a.getPrice() + " | "
+                    + a.getSize() + " | " + a.getStatus());
+        }
     }
 
     @Test
     @Order(2)
     public void testGetProductByStatusDiscontinued() {
-        Product productD = new Product(17, "MWPOM20", "Pomegranate", 20, 2.0, "DISCONTINUED", "pomegranate.png");
+        Product productD = new Product(6, "MWPOM32", "Pomegranate", 32, 4.0, "DISCONTINUED", "pomegranate.png");
         productRepository.save(productD);
         List<Product> discontinuedProducts = productRepository.getProductByStatus("DISCONTINUED");
-        Assertions.assertTrue(discontinuedProducts.contains(productD));
+        Assertions.assertEquals(1, discontinuedProducts.size());
+
+        for (Product d : discontinuedProducts) {
+            System.out.println(d.getId() + " | " + d.getCode() + " | " + d.getVariety() + " | " + d.getPrice() + " | "
+                    + d.getSize() + " | " + d.getStatus());
+        }
     }
 }
