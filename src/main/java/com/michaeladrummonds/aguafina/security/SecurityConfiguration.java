@@ -11,14 +11,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import com.michaeladrummonds.aguafina.services.UserService;
+import com.michaeladrummonds.aguafina.services.impl.UserServiceImpl;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
