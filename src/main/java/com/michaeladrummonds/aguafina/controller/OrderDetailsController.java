@@ -42,7 +42,9 @@ public class OrderDetailsController {
     @PostMapping("/orderdetails/save")
     public String saveOrderDetails(@ModelAttribute("orderDetails") OrderDetails orderDetails, Model model) {
         orderDetailsService.saveOrderDetails(orderDetails);
+        List<Product> products = productService.getAllProducts();
         model.addAttribute("orderDetails", orderDetails);
+        model.addAttribute("products", products);
         return "save_order_details";
     }
 }
