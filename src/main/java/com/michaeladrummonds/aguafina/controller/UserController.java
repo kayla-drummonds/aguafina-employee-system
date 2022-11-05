@@ -1,5 +1,7 @@
 package com.michaeladrummonds.aguafina.controller;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.michaeladrummonds.aguafina.models.Role;
 import com.michaeladrummonds.aguafina.models.User;
 import com.michaeladrummonds.aguafina.services.impl.UserServiceImpl;
 
@@ -41,10 +44,15 @@ public class UserController {
     @PostMapping("/registration")
     public String registerUser(@RequestParam Map<String, String> body) {
         User user = new User();
+        Role role = new Role();
+        role.setName("USER");
+        Collection<Role> roles = new ArrayList<>();
+        roles.add(role);
         user.setFirstName(body.get("firstName"));
         user.setLastName(body.get("lastName"));
         user.setEmail(body.get("email"));
         user.setPassword(encoder.encode(body.get("password")));
+        user.setRoles(roles);
         userService.createNewUser(user);
         return "redirect:/registration?success";
     }

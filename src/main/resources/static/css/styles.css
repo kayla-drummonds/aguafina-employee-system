@@ -8,160 +8,123 @@ font-family: 'Noto Sans Ethiopic', sans-serif;
  */
 
 body {
-    font-family: 'Noto Sans Ethiopic', sans-serif;
+	font-family: "Noto Sans Ethiopic", sans-serif;
 }
 
 /* navigation bar properties */
-.navbar {
-    background-color:#135C9E;
-    text-align:center;
-    width:100%
-}
-.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: inline;
+nav {
+	background-color: #135c9e;
+	width: 100%;
 }
 
-.navbar li {
-    display: inline-block;
+#navlinks {
+	text-align: center;
 }
 
-.navbar li a, .dropbtn {
-    display:inline-block;
-    text-align:center;
-    padding: 14px 16px;
-    text-decoration:none;
+/* layout properties */
+.container-fluid {
+	background-color: #afc1d2;
 }
 
-.navbar li a:hover, .dropdown:hover {
-    background-color: #E3E3E3;
-    color:#135C9E;
+.row {
+	text-align: center;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #135C9E;
-    color:#E3E3E3;
-    z-index: 1;
-}
-  
-.dropdown-content a {
-    color: #E3E3E3;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-  
-.dropdown-content a:hover {
-    background-color: #E3E3E3;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-/* grid layout properties */
-.grid-container {
-    display:grid;
-    background-color:#AFC1D2;
-}
-  
-.grid-item {
-    text-align:center;
+.card {
+	text-align: center;
 }
 
 /* button properties */
 #update-button {
-    background-color: #135C9Eff;
-    color: #E3E3E3ff;
-    border: 2px solid #E3E3E3ff;
-    transition-duration: 0.4s;
+	background-color: #135c9eff;
+	color: #e3e3e3ff;
+	border: 2px solid #e3e3e3ff;
+	transition-duration: 0.4s;
 }
-  
+
 #update-button:hover {
-    background-color: #E3E3E3ff;
-    color:#135C9Eff;
-    border: 2px solid #135C9Eff;
+	background-color: #e3e3e3ff;
+	color: #135c9eff;
+	border: 2px solid #135c9eff;
 }
 
 #delete-button {
-    background-color: red;
-    color: #E3E3E3ff;
-    border: 2px solid #E3E3E3ff;
-    transition-duration: 0.4s;
+	background-color: red;
+	color: #e3e3e3ff;
+	border: 2px solid #e3e3e3ff;
+	transition-duration: 0.4s;
 }
 
 #delete-button:hover {
-    background-color: #E3E3E3ff;
-    color:red;
-    border: 2px solid red;
+	background-color: #e3e3e3ff;
+	color: red;
+	border: 2px solid red;
 }
 
 #create-button {
-    background-color: #477EAF;
-    color: #E3E3E3ff;
-    border: 2px solid #E3E3E3ff;
-    transition-duration: 0.4s;
+	background-color: #477eaf;
+	color: #e3e3e3ff;
+	border: 2px solid #e3e3e3ff;
+	transition-duration: 0.4s;
 }
 
 #create-button:hover {
-    background-color: #E3E3E3ff;
-    color:#477EAF;
-    border: 2px solid #477EAF;
+	background-color: #e3e3e3ff;
+	color: #477eaf;
+	border: 2px solid #477eaf;
 }
 
 /* global form properties */
 .uk-input {
-    width: 250px;
+	width: 250px;
 }
 
 form {
-    margin: auto;
-    padding: 10%;
-    border: solid 2px;
-    background-color:#E3E3E3ff;
+	margin: auto;
+	padding: 10%;
+	border: solid 2px;
+	background-color: #e3e3e3ff;
 }
 
 h3 {
-    text-align: center;
-    color:#477EAF;
+	text-align: center;
+	color: #477eaf;
 }
 
 .uk-form-label {
-    font-size: 18px;
-    color:#477EAF;
+	font-size: 18px;
+	color: #477eaf;
 }
 
 .uk-select {
-    width: 250px;
-  }
+	width: 250px;
+}
 
 /* global table properties */
-.uk-table th, .uk-table td {
-    text-align: center;
-    padding: 15px;
-    border-bottom: 1px solid black;
+.uk-table th,
+.uk-table td {
+	text-align: center;
+	padding: 15px;
+	border-bottom: 1px solid black;
 }
 
 .uk-table tr:nth-child(even) {
-    background-color:white;
-    color: #477EAF;
+	background-color: white;
+	color: #477eaf;
 }
 
 .uk-table tr:nth-child(odd) {
-    background-color:#7ba0c1;
-    color:#E3E3E3ff;
+	background-color: #7ba0c1;
+	color: #e3e3e3ff;
 }
 
-.uk-table tr:hover, .uk-table th {
-    background-color:#477EAF;
-    color:#E3E3E3ff;
+.uk-table tr:hover,
+.uk-table th {
+	background-color: #477eaf;
+	color: #e3e3e3ff;
 }
 
 /* global modal properties */
 .uk-modal-header {
-    text-align: center;
+	text-align: center;
 }
