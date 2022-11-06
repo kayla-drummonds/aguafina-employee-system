@@ -101,25 +101,25 @@ h3 {
 }
 
 /* global table properties */
-.uk-table th,
-.uk-table td {
+.table th,
+.table td {
 	text-align: center;
 	padding: 15px;
 	border-bottom: 1px solid black;
 }
 
-.uk-table tr:nth-child(even) {
+.table tr:nth-child(even) {
 	background-color: white;
 	color: #477eaf;
 }
 
-.uk-table tr:nth-child(odd) {
+.table tr:nth-child(odd) {
 	background-color: #7ba0c1;
 	color: #e3e3e3ff;
 }
 
-.uk-table tr:hover,
-.uk-table th {
+.table tr:hover,
+.table th {
 	background-color: #477eaf;
 	color: #e3e3e3ff;
 }

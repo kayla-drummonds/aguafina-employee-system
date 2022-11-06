@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/css/uikit.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/styles.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,42 +15,48 @@
 
 <body>
     <header>
-        <nav class="navbar">
-            <ul>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Shop</a>
-                    <div class="dropdown-content">
-                        <a th:href="@{/products}">All Products</a>
-                        <a th:href="@{/products/new}">Add New Product</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Orders</a>
-                    <div class="dropdown-content">
-                        <a th:href="@{/orders}">All Orders</a>
-                        <a th:href="@{/orders/new}">Add New Order</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Customers</a>
-                    <div class="dropdown-content">
-                        <a th:href="@{/customers}">All Customers</a>
-                        <a th:href="@{/customers/new}">Add New Customer</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Employees</a>
-                    <div class="dropdown-content">
-                        <a th:href="@{/employees}">All Employees</a>
-                        <a th:href="@{/employees/new}">Add New Employee</a>
-                    </div>
-                </li>
-            </ul>
+        <nav class="navbar navbar-expand-sm navbar-dark">
+            <button title="navbarToggler" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav justify-content-center" id="navlinks">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Shop</a>
+                        <ul class="dropdown-menu">
+                            <li><a th:href="@{/products}" class="dropdown-item">All Products</a></li>
+                            <li><a th:href="@{/products/new}" class="dropdown-item">Add New Product</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Orders</a>
+                        <ul class="dropdown-menu">
+                            <li><a th:href="@{/orders}" class="dropdown-item">All Orders</a> </li>
+                            <li><a th:href="@{/orders/new}" class="dropdown-item">Add New Order</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Customers</a>
+                        <ul class="dropdown-menu">
+                            <li><a th:href="@{/customers}" class="dropdown-item">All Customers</a></li>
+                            <li><a th:href="@{/customers/new}" class="dropdown-item">Add New Customer</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employees</a>
+                        <ul class="dropdown-menu">
+                            <li><a th:href="@{/employees}" class="dropdown-item">All Employees</a></li>
+                            <li><a th:href="@{/employees/new}" class="dropdown-item">Add New Employee</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </header>
-    <a th:href="@{/employees/new}" class="uk-button" id="create-button">Create New Employee</a>
-    <div id="employees" class="grid-container">
-        <table class="uk-table">
+    <a th:href="@{/employees/new}" class="btn" id="create-button">Create New Employee</a>
+    <div id="employees" class="table-responsive-md">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Employee ID</th>
@@ -109,8 +116,9 @@
         </table>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit-icons.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
