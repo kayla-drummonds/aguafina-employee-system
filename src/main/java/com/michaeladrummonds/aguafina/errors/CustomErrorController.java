@@ -28,6 +28,10 @@ public class CustomErrorController implements ErrorController {
                 errorMsg = "Http Error Code: 401. Unauthorized.";
                 break;
             }
+            case 403: {
+                errorMsg = "Http Error Code: 403. Access Denied.";
+                break;
+            }
             case 404: {
                 errorMsg = "Http Error Code: 404. Resource not found.";
                 break;

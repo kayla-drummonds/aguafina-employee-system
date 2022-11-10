@@ -73,38 +73,27 @@
                     <td th:text="${employee.lastName}"></td>
                     <td th:text="${employee.email}"></td>
                     <td>
-                        <button class="uk-button uk-button-default" type="button"
-                            uk-toggle="target: #offcanvas-push-1">Additional information</button>
-                        <button class="uk-button uk-button-default" type="button"
-                            uk-toggle="target: #offcanvas-push-2">Orders</button>
-                        <div id="offcanvas-push-1" uk-offcanvas="mode: push; overlay: true">
-                            <div class="uk-offcanvas-bar" th:object="${employee}">
-                                <button title="close" class="uk-offcanvas-close" type="button" uk-close></button>
-                                <h3>All Employee Information</h3>
-                                <ul>
-                                    <li th:text="'Employee ID: ' + ${employee.id}">Employee ID</li>
-                                    <li th:text="'First name: ' + ${employee.firstName}">First Name</li>
-                                    <li th:text="'Last name: ' + ${employee.lastName}">Last Name</li>
-                                    <li th:text="'Email: ' + ${employee.email}">Email</li>
-                                    <li
-                                        th:text="'Address: ' + ${employee.address} + ' ' + ${employee.city} + ', ' + ${employee.state} + ' ' + ${employee.zipCode}">
-                                        Address</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div id="offcanvas-push-2" uk-offcanvas="mode: push; overlay: true">
-                            <div class="uk-offcanvas-bar">
-                                <button title="close" class="uk-offcanvas-close" type="button" uk-close></button>
-                                <h3>Orders</h3>
-                                <div th:each="order : ${ordersByEmployee}">
-                                    <ul>
-                                        <li th:text="'Customer ID: ' + ${order.customer.id}">Customer ID</li>
-                                        <li th:text="'Order ID: ' + ${order.id}">Order ID</li>
-                                        <li th:text="'Product Code: ' + ${order.orderDetails.product.code}">
-                                            Product Code</li>
-                                        <li th:text="'Quantity: ' + ${order.orderDetails.quantity}">Quantity
+                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                            aria-expanded="false" aria-controls="collapseExample">
+                            Orders
+                        </a>
+                        <div class="collapse multi-collapse" id="collapseExample">
+                            <div class="card" th:each="order : ${employee.orders}">
+                                <div class="card-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item" th:text="'Order ID: ' + ${order.id}">Order ID</li>
+                                        <li class="list-group-item" th:text="'Customer ID: ' + ${order.customer.id}">
+                                            Customer ID
                                         </li>
-                                        <li th:text="'Total: ' + ${#numbers.formatCurrency(order.orderDetails.total)}">
+                                        <li class="list-group-item"
+                                            th:text="'Product Code: ' + ${order.orderDetails.product.code}">
+                                            Product Code</li>
+                                        <li class="list-group-item"
+                                            th:text="'Quantity: ' + ${order.orderDetails.quantity}">
+                                            Quantity
+                                        </li>
+                                        <li class="list-group-item"
+                                            th:text="'Total: ' + ${#numbers.formatCurrency(order.orderDetails.total)}">
                                             Total</li>
                                     </ul>
                                 </div>
@@ -115,6 +104,7 @@
             </tbody>
         </table>
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

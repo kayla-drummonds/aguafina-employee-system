@@ -48,7 +48,7 @@ public class User implements UserDetails {
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "users_roles", joinColumns = @javax.persistence.JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @javax.persistence.JoinColumn(name = "role_id", referencedColumnName = "id"))
-    private Collection<Role> roles;
+    private Collection<String> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
