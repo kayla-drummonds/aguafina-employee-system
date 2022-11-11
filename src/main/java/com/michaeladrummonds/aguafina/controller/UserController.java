@@ -44,13 +44,13 @@ public class UserController {
     @PostMapping("/registration/user")
     public String registerUser(@ModelAttribute("user") UserRegistrationDto registrationDto) {
         userService.saveUser(registrationDto);
-        return "redirect:/registration?success";
+        return "redirect:/login?success";
     }
 
     @PostMapping("/registration/admin")
     public String registerAdmin(@ModelAttribute("user") UserRegistrationDto registrationDto) {
         userService.saveAdmin(registrationDto);
-        return "redirect:/registration?success";
+        return "redirect:/login?success";
     }
 
     @GetMapping("/login")
