@@ -56,4 +56,9 @@ public class Employee {
     @EqualsAndHashCode.Exclude
     private List<Order> orders;
 
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "user_id")
+    @EqualsAndHashCode.Exclude
+    private User user;
+
 }
