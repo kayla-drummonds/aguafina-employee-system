@@ -16,28 +16,28 @@
     <header>
         <nav class="navbar">
             <ul>
-                <li class="dropdown">
+                <li class="dropdown" sec:authorize="hasAnyAuthority('ADMIN')">
                     <a href="#" class="dropbtn">Shop</a>
                     <div class="dropdown-content">
                         <a th:href="@{/products}">All Products</a>
                         <a th:href="@{/products/new}">Add New Product</a>
                     </div>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown" sec:authorize="hasAnyAuthority('ADMIN', 'USER')">
                     <a href="#" class="dropbtn">Orders</a>
                     <div class="dropdown-content">
                         <a th:href="@{/orders}">All Orders</a>
                         <a th:href="@{/orders/new}">Add New Order</a>
                     </div>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown" sec:authorize="hasAnyAuthority('ADMIN', 'USER')">
                     <a href="#" class="dropbtn">Customers</a>
                     <div class="dropdown-content">
                         <a th:href="@{/customers}">All Customers</a>
                         <a th:href="@{/customers/new}">Add New Customer</a>
                     </div>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown" sec:authorize="hasAnyAuthority('ADMIN')">
                     <a href="#" class="dropbtn">Employees</a>
                     <div class="dropdown-content">
                         <a th:href="@{/employees}">All Employees</a>

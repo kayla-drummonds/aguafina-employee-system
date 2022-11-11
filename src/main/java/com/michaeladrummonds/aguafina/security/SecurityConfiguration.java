@@ -2,8 +2,6 @@ package com.michaeladrummonds.aguafina.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
-import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -12,7 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.michaeladrummonds.aguafina.services.impl.UserServiceImpl;
@@ -30,11 +27,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public RoleHierarchy roleHierarchy() {
-        RoleHierarchyImpl roleHierarchy = new RoleHierarchyImpl();
-        String hierarchy = "ROLE_ADMIN > ROLE_USER";
-        roleHierarchy.setHierarchy(hierarchy);
-        return roleHierarchy;
+    public DaoAuthenticationProvider authenticationProvider(UserDetailsService userServiceImpl) {
+        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
+        auth.setUserDetailsService(userServiceImpl);
+        auth.setPasswordEncoder(passwordEncoder());
+        return auth;
     }
 
     @Override
@@ -45,7 +42,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 "/css/**",
                 "/img/**").permitAll()
                 .antMatchers("/products/**", "/employees/**", "/admin").hasAnyRole("ADMIN")
-                .antMatchers("/orders/**", "/customers/**", "/user").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/", "/orders/**", "/customers/**", "/user").hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -58,14 +55,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login?logout")
                 .permitAll();
-    }
-
-    @Bean
-    public DaoAuthenticationProvider authenticationProvider(UserDetailsService userServiceImpl) {
-        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
-        auth.setUserDetailsService(userServiceImpl);
-        auth.setPasswordEncoder(passwordEncoder());
-        return auth;
     }
 
     @Override
