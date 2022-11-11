@@ -2,6 +2,10 @@ package com.michaeladrummonds.aguafina.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,5 +60,17 @@ public class UserController {
     @GetMapping("/logout-success")
     public String getLogoutPage(Model model) {
         return "logout";
+    }
+
+    @GetMapping("/user")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<String> defaultPage(Model model) {
+        return new ResponseEntity<>("You have USER role.", HttpStatus.OK);
+    }
+
+    @GetMapping("/admin")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<String> getAllBlogs(Model model) {
+        return new ResponseEntity<>("You have ADMIN role.", HttpStatus.OK);
     }
 }

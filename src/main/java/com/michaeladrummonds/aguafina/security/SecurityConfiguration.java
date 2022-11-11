@@ -16,7 +16,7 @@ import com.michaeladrummonds.aguafina.services.impl.UserServiceImpl;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private UserServiceImpl userServiceImpl;
@@ -33,8 +33,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 "/js/**",
                 "/css/**",
                 "/img/**").permitAll()
-                .antMatchers("/products/**", "/employees/**").hasAnyRole("ADMIN")
-                .antMatchers("/orders/**", "/customers/**").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/products/**", "/employees/**", "/admin/**").hasAnyRole("ADMIN")
+                .antMatchers("/orders/**", "/customers/**", "/user/**").hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

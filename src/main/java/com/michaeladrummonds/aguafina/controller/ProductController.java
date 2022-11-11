@@ -27,7 +27,7 @@ public class ProductController {
     }
 
     @GetMapping("/products")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String getAllProducts(Model model) {
         List<Product> products = productService.getAllProducts();
         model.addAttribute("products", products);
@@ -35,7 +35,7 @@ public class ProductController {
     }
 
     @GetMapping("/products/new")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String createNewProduct(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
@@ -43,21 +43,21 @@ public class ProductController {
     }
 
     @PostMapping("/products")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String saveProduct(@ModelAttribute("product") Product product) {
         productService.saveProduct(product);
         return "redirect:/products";
     }
 
     @GetMapping("/products/edit/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String editProduct(@PathVariable Integer id, Model model) {
         model.addAttribute("product", productService.getProductById(id));
         return "edit_product";
     }
 
     @PostMapping("/products/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String updateProduct(@PathVariable Integer id, @ModelAttribute("product") Product product, Model model) {
         Product existingProduct = productService.getProductById(id);
         existingProduct.setId(product.getId());
