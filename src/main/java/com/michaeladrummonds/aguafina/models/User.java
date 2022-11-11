@@ -1,8 +1,7 @@
 package com.michaeladrummonds.aguafina.models;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+import java.util.Collections;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,7 +15,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.AllArgsConstructor;
@@ -48,17 +46,13 @@ public class User implements UserDetails {
     @Column(name = "password")
     private String password;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "users_roles", joinColumns = @javax.persistence.JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @javax.persistence.JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        for (Role role : roles) {
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
-        }
-        return authorities;
+        return Collections.emptyList();
     }
 
     @Override
@@ -84,5 +78,9 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public void addRole(Role role) {
+        this.roles.add(role);
     }
 }
