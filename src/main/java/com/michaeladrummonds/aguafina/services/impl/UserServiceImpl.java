@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.michaeladrummonds.aguafina.models.CustomUserDetails;
 import com.michaeladrummonds.aguafina.models.Role;
 import com.michaeladrummonds.aguafina.models.User;
 import com.michaeladrummonds.aguafina.models.UserRegistrationDto;
@@ -38,7 +39,7 @@ public class UserServiceImpl implements UserDetailsService {
         if (null == user) {
             throw new UsernameNotFoundException("Cannot find user with email: " + email);
         }
-        return user;
+        return new CustomUserDetails(user);
     }
 
     public User saveUser(UserRegistrationDto registrationDto) {
