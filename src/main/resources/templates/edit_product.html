@@ -23,14 +23,14 @@
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav justify-content-center" id="navlinks">
                     <li class="nav-item dropdown" sec:authorize="hasAnyAuthority('ADMIN')">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Shop</a>
+                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Shop</a>
                         <ul class="dropdown-menu">
                             <li><a th:href="@{/products}" class="dropdown-item">All Products</a></li>
                             <li><a th:href="@{/products/new}" class="dropdown-item">Add New Product</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown" sec:authorize="hasAnyAuthority('ADMIN', 'USER')">
-                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Orders</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Orders</a>
                         <ul class="dropdown-menu">
                             <li><a th:href="@{/orders}" class="dropdown-item">All Orders</a> </li>
                             <li><a th:href="@{/orders/new}" class="dropdown-item">Add New Order</a></li>
@@ -57,53 +57,80 @@
             </div>
         </nav>
     </header>
-    <div id="update-product-form" class="grid-container">
-        <form class="uk-form-horizontal" th:action="@{/products/{id}(id=${product.id})}" th:object="${product}"
-            method="POST">
+    <div id="update-product-form" class="container-fluid">
+        <form th:action="@{/products/{id}(id=${product.id})}" th:object="${product}" method="POST">
             <h3 th:text="'Update ' + ${product.code}"></h3>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="id">Product ID: </label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" type="text" th:field="*{id}" id="id" disabled>
+            <div class="row mb-3 mt-3">
+                <div class="col-6">
+                    <div class="row">
+                        <label class="col-4 col-form-label" for="id">Product ID: </label>
+                        <div class="col-8">
+                            <input class="form-control" type="text" th:field="*{id}" id="id" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <label class="col-4 col-form-label" for="code">Product Code:</label>
+                        <div class="col-8">
+                            <input class="form-control" type="text" th:field="*{code}" id="code" readonly>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="code">Product Code:</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" type="text" th:field="*{code}" id="code">
+            <div class="row mb-3">
+                <div class="col-6">
+                    <div class="row">
+                        <label class="col-4 col-form-label" for="variety">Variety:</label>
+                        <div class="col-8">
+                            <input class="form-control" type="text" th:field="*{variety}" id="variety" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <label class="col-4 col-form-label" for="size">Size:</label>
+                        <div class="col-8">
+                            <input class="form-control" type="number" th:field="*{size}" id="size" readonly>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="variety">Variety:</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" type="text" th:field="*{variety}" id="variety">
+            <div class="row mb-3">
+                <div class="col-6">
+                    <div class="row">
+                        <label class="col-4 col-form-label" for="price">Price:</label>
+                        <div class="col-8">
+                            <input class="form-control" type="number" th:field="*{price}" id="price">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <label class="col-4 col-form-label" for="status">Status:</label>
+                        <div class="col-8">
+                            <input class="form-control" type="text" th:field="*{status}" id="status">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="size">Size:</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" stype="number" th:field="*{size}" id="size">
+            <div class="row mb-3">
+                <div class="col-6">
+                    <div class="row">
+                        <label class="col-4 col-form-label" for="image">Image:</label>
+                        <div class="col-8">
+                            <input class="form-control" type="text" th:field="*{image}" id="image">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-12">
+                            <button class="btn btn-success" type="submit">Submit</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="price">Price:</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" type="number" th:field="*{price}" id="price">
-                </div>
-            </div>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="status">Status:</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" type="text" th:field="*{status}" id="status">
-                </div>
-            </div>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="image">Image:</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" type="text" th:field="*{image}" id="image">
-                </div>
-            </div>
-            <button class="uk-button" type="submit">Submit</button>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
