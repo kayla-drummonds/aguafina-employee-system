@@ -36,15 +36,12 @@ public class OrderDetailsController {
         return "create_order_details";
     }
 
-    // saves the new OrderDetails object, shows the
-    // OrderDetails id to create a new Order object,
-    // and gives the option to create another OrderDetails object
+    // saves the new OrderDetails object and shows the
+    // OrderDetails id to create a new Order object
     @PostMapping("/orderdetails/save")
     public String saveOrderDetails(@ModelAttribute("orderDetails") OrderDetails orderDetails, Model model) {
         orderDetailsService.saveOrderDetails(orderDetails);
-        List<Product> products = productService.getAllProducts();
         model.addAttribute("orderDetails", orderDetails);
-        model.addAttribute("products", products);
         return "save_order_details";
     }
 }

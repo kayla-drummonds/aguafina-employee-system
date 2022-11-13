@@ -50,6 +50,9 @@
                             <li><a th:href="@{/employees/new}" class="dropdown-item">Add New Employee</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/logout}">Log Out</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -83,7 +86,7 @@
                     <td th:text="${order.orderDetails.quantity}">Quantity</td>
                     <td th:text="${#numbers.formatCurrency(order.orderDetails.total)}">Total</td>
                     <td>
-                        <a th:href="@{/orders/{id}(id=${order.id})}" class="uk-button" id="delete-button">Delete</a>
+                        <a th:href="@{/orders/{id}(id=${order.id})}" class="btn" id="delete-button">Delete</a>
                     </td>
                 </tr>
             </tbody>

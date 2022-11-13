@@ -33,7 +33,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Orders</a>
                         <ul class="dropdown-menu">
                             <li><a th:href="@{/orders}" class="dropdown-item">All Orders</a> </li>
-                            <li><a th:href="@{/orders/new}" class="dropdown-item">Add New Order</a></li>
+                            <li><a th:href="@{/orderdetails/new}" class="dropdown-item">Add New Order</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown" sec:authorize="hasAnyAuthority('ADMIN', 'USER')">
