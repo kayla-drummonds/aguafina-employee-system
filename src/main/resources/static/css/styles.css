@@ -12,13 +12,13 @@ body {
 }
 
 /* navigation bar properties */
-nav {
+.nav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
 	background-color: #135c9e;
 	width: 100%;
-}
-
-#navlinks {
-	text-align: center;
 }
 
 /* layout properties */
