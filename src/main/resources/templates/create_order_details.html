@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/css/uikit.min.css" />
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic&display=swap" rel="stylesheet">
+    <title>New Order | Details</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Shop</a>
+                    <div class="dropdown-content">
+                        <a th:href="@{/products}">All Products</a>
+                        <a th:href="@{/products/new}">Add New Product</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Orders</a>
+                    <div class="dropdown-content">
+                        <a th:href="@{/orders}">All Orders</a>
+                        <a th:href="@{/orders/new}">Add New Order</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Customers</a>
+                    <div class="dropdown-content">
+                        <a th:href="@{/customers}">All Customers</a>
+                        <a th:href="@{/customers/new}">Add New Customer</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Employees</a>
+                    <div class="dropdown-content">
+                        <a th:href="@{/employees}">All Employees</a>
+                        <a th:href="@{/employees/new}">Add New Employee</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div id="new-order-details-form" name="newObjectForm" class="grid-container">
+        <form class="uk-form-horizontal" th:action="@{/orderdetails/save}" th:object="${orderDetails}" method="POST"
+            oninput="total.value=parseFloat(p.value)*parseFloat(q.value)">
+            <h3>Add New Order</h3>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="creationDate">Creation Date:</label>
+                <div class="uk-form-controls">
+                    <input name="creationDate" class="uk-input" type="date" th:field="*{creationDate}" id="creationDate"
+                        placeholder="MM/dd/yyyy">
+                </div>
+            </div>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="codes">Product Code:</label>
+                <div class="uk-form-controls">
+                    <select name="codes" class="uk-select" id="codes" th:field="*{product.id}">
+                        <option th:each="product : ${products}" th:value="${product.id}" th:text="${product.code}">
+                            CODE</option>
+                    </select>
+                </div>
+            </div>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="q">Quantity:</label>
+                <div class="uk-form-controls">
+                    <input name="quantity" class="uk-input" type="number" th:field="*{quantity}" id="q">
+                </div>
+            </div>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="p">Price:</label>
+                <div class="uk-form-controls">
+                    <input name="price" class="uk-input" type="number" th:field="*{product.price}" title="price" id="p">
+                </div>
+            </div>
+            <output name="calcTotal" for="p q"></output>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="total">Enter Total:</label>
+                <div class="uk-form-controls">
+                    <input name="total" class="uk-input" type="number" th:field="*{total}" id="total">
+                </div>
+            </div>
+            <button class="uk-button" type="submit">Submit</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit-icons.min.js"></script>
+</body>
+
+</html>
