@@ -7,5 +7,5 @@ import com.michaeladrummonds.aguafina.models.Employee;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
-
+    Employee findByEmail(String email);
 }
