@@ -79,4 +79,14 @@ public class OrderController {
         model.addAttribute("total", total);
         return "customer_orders";
     }
+
+    @GetMapping("/orders/employee/{employee}")
+    public String getOrdersByEmployee(Model model, @Param("employee") @ModelAttribute("employee") Employee employee) {
+        Integer employeeId = employee.getId();
+        List<Order> ordersByEmployee = orderService.getOrderByEmployeeId(employee, employeeId);
+        Double orderCount = orderService.countOrdersByEmployeeId(employee, employeeId);
+        model.addAttribute("ordersByEmployee", ordersByEmployee);
+        model.addAttribute("orderCount", orderCount);
+        return "employee_orders";
+    }
 }

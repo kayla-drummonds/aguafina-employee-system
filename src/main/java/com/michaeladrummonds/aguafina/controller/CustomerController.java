@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.michaeladrummonds.aguafina.models.Customer;
 import com.michaeladrummonds.aguafina.services.impl.CustomerServiceImpl;
@@ -27,9 +28,18 @@ public class CustomerController {
 
     // displays all customers
     @GetMapping("/customers")
-    public String listCustomers(@ModelAttribute("customer") Customer customer, Model model) {
-        List<Customer> customers = customerService.getAllCustomers();
-        model.addAttribute("customers", customers);
+    public String listCustomers(@ModelAttribute("customer") Customer customer,
+            @RequestParam(value = "keyword", required = false) String keyword, Model model) {
+
+        if (keyword != null) {
+            List<Customer> customers = customerService.getCustomerByKeyword(keyword);
+            model.addAttribute("customers", customers);
+            model.addAttribute("keyword", keyword);
+        } else {
+            List<Customer> customers = customerService.getAllCustomers();
+            model.addAttribute("customers", customers);
+            model.addAttribute("keyword", keyword);
+        }
         return "customers";
     }
 
